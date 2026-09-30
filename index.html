@@ -218,6 +218,14 @@ img { display: block; max-width: 100%; }
 .contact-form .form-honey { position: absolute; left: -9999px; opacity: 0; width: 1px; height: 1px; }
 .form-note, .contact-aside p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.85; }
 .contact-form .button-primary { justify-self: start; border: 0; cursor: pointer; }
+.contact-form .button-primary:disabled { opacity: .6; cursor: wait; }
+.form-status:empty { display: none; }
+.form-status { color: var(--muted); font-size: 13px; line-height: 1.8; }
+.form-status.form-error { padding: 16px 18px; border: 1px solid #96665e; border-radius: 9px; background: #382b32; color: #f1d6d0; }
+.form-error p { margin: 0 0 12px; }
+.form-fallback { display: flex; flex-wrap: wrap; gap: 15px; }
+.form-fallback a { display: inline-flex; align-items: center; gap: 5px; color: #e8bd9e; text-decoration: underline; text-underline-offset: 4px; }
+.form-fallback svg { width: 14px; height: 14px; }
 .contact-aside { background: linear-gradient(140deg,#18384b,#122536); }
 .contact-email { display: block; overflow-wrap: anywhere; margin: 15px 0; color: #e0f3f9; font-size: 15px; font-weight: 650; }
 .contact-aside .inline-link { display: inline-flex; gap: 7px; align-items: center; margin-top: 25px; font-size: 12px; }
@@ -507,7 +515,8 @@ const MIGRATION_COPY = {
     send: "送出訊息", sendingNote: "送出後會由 FormSubmit 處理，再寄至 SLAIAC.SERVICE@gmail.com。",
     privacyNote: "請勿填入密碼或其他敏感資料。表單經 FormSubmit 傳送至 Gmail；FormSubmit 可能暫存提交內容。提交即表示同意此傳送方式。",
     sentTitle: "訊息已送出", sentText: "感謝來信。若有需要，我們會透過你填寫的電子郵件回覆。",
-    sendAnother: "再寫一封", directEmail: "也可以直接寄信", historyLinks: "相關舊站內容",
+    sending: "傳送中…", sendError: "目前無法確認表單是否送達。請直接寄信，或使用舊站聯絡頁；你填寫的內容仍保留在此頁。",
+    oldContact: "開啟舊站聯絡頁", sendAnother: "再寫一封", directEmail: "也可以直接寄信", historyLinks: "相關舊站內容",
   },
   "zh-Hans": {
     contact: "联系", privacy: "隐私政策", archive: "历史资料", latest: "近期更新",
@@ -526,7 +535,8 @@ const MIGRATION_COPY = {
     send: "发送消息", sendingNote: "提交后由 FormSubmit 处理，再寄至 SLAIAC.SERVICE@gmail.com。",
     privacyNote: "请勿填写密码或其他敏感资料。表单经 FormSubmit 传送至 Gmail；FormSubmit 可能暂存提交内容。提交即表示同意此传送方式。",
     sentTitle: "消息已发送", sentText: "感谢来信。如有需要，我们会通过你填写的电子邮箱回复。",
-    sendAnother: "再写一封", directEmail: "也可以直接发邮件", historyLinks: "相关旧站内容",
+    sending: "发送中…", sendError: "目前无法确认表单是否送达。请直接发邮件，或使用旧站联系页面；你填写的内容仍保留在此页。",
+    oldContact: "打开旧站联系页面", sendAnother: "再写一封", directEmail: "也可以直接发邮件", historyLinks: "相关旧站内容",
   },
   en: {
     contact: "Contact", privacy: "Privacy", archive: "Archive", latest: "Recent updates",
@@ -545,7 +555,8 @@ const MIGRATION_COPY = {
     send: "Send message", sendingNote: "FormSubmit processes this form and forwards it to SLAIAC.SERVICE@gmail.com.",
     privacyNote: "Please do not include passwords or other sensitive data. The form is sent through FormSubmit to Gmail; FormSubmit may temporarily retain submissions. By sending, you agree to this delivery method.",
     sentTitle: "Message submitted", sentText: "Thank you. We will reply to the email address you provided if a response is needed.",
-    sendAnother: "Send another", directEmail: "Or email directly", historyLinks: "Related archive",
+    sending: "Sending…", sendError: "We could not confirm delivery. Please email us directly or use the old contact page. Your message remains in this form.",
+    oldContact: "Open old contact page", sendAnother: "Send another", directEmail: "Or email directly", historyLinks: "Related archive",
   },
 };
 
@@ -1272,15 +1283,37 @@ function policyDetailView(locale, c, product) {
 
 function contactView(locale, c) {
   const m = MIGRATION_COPY[locale];
-  const sent = new URLSearchParams(location.search).get("sent") === "1";
-  const next = new URL(location.href);
-  next.search = "?sent=1";
-  next.hash = url(locale, "contact");
   const options = [
     ["", m.subjectPlaceholder], ["ShopperPro feedback", m.subjectShopper], ["AccountBox feedback", m.subjectAccount],
     ["Suggestion", m.subjectSuggestion], ["Conversation", m.subjectChat], ["Other", m.subjectOther],
   ];
-  return `${pageHero(locale, c, "CONTACT SLAIAC STUDIO", m.contactTitle, m.contactIntro)}<section class="container section contact-layout"><div class="contact-panel"><h2>${m.contactFormTitle}</h2>${sent ? `<div class="form-success" role="status"><h3>${m.sentTitle}</h3><p>${m.sentText}</p><a class="button-secondary" href="${location.pathname}${url(locale, "contact")}">${m.sendAnother} ${icon("arrowRight")}</a></div>` : `<form class="contact-form" action="https://formsubmit.co/SLAIAC.SERVICE@gmail.com" method="POST" accept-charset="UTF-8"><input type="hidden" name="_subject" value="SLAIAC Studio website contact" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_next" value="${next.href}" /><input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" /><div class="form-grid"><label>${m.name}<input type="text" name="name" autocomplete="name" maxlength="120" required /></label><label>${m.email}<input type="email" name="email" autocomplete="email" maxlength="254" required /></label></div><div class="form-grid"><label>${m.subject}<select name="topic" required>${options.map(([value, label]) => `<option value="${value}"${value ? "" : " disabled selected"}>${label}</option>`).join("")}</select></label><label>${m.website}<input type="url" name="website" autocomplete="url" maxlength="300" /></label></div><label>${m.message}<textarea name="message" rows="8" minlength="10" maxlength="10000" required></textarea></label><p class="form-note">${m.privacyNote}</p><button class="button-primary" type="submit">${m.send} ${icon("arrowUpRight")}</button></form>`}</div><aside class="contact-aside"><span class="eyebrow">EMAIL</span><a class="contact-email" href="mailto:SLAIAC.SERVICE@gmail.com">SLAIAC.SERVICE@gmail.com</a><p>${m.sendingNote}</p><a class="inline-link" href="mailto:SLAIAC.SERVICE@gmail.com">${m.directEmail} ${icon("arrowUpRight")}</a></aside></section>`;
+  return `${pageHero(locale, c, "CONTACT SLAIAC STUDIO", m.contactTitle, m.contactIntro)}
+    <section class="container section contact-layout">
+      <div class="contact-panel"><h2>${m.contactFormTitle}</h2>
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/SLAIAC.SERVICE@gmail.com" method="POST" accept-charset="UTF-8">
+          <input type="hidden" name="_subject" value="SLAIAC Studio website contact" />
+          <input type="hidden" name="_template" value="table" />
+          <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-grid">
+            <label>${m.name}<input type="text" name="name" autocomplete="name" maxlength="120" required /></label>
+            <label>${m.email}<input type="email" name="email" autocomplete="email" maxlength="254" required /></label>
+          </div>
+          <div class="form-grid">
+            <label>${m.subject}<select name="topic" required>${options.map(([value, label]) => `<option value="${value}"${value ? "" : " disabled selected"}>${label}</option>`).join("")}</select></label>
+            <label>${m.website}<input type="url" name="website" autocomplete="url" maxlength="300" /></label>
+          </div>
+          <label>${m.message}<textarea name="message" rows="8" minlength="10" maxlength="10000" required></textarea></label>
+          <p class="form-note">${m.privacyNote}</p>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+          <button class="button-primary" type="submit">${m.send} ${icon("arrowUpRight")}</button>
+        </form>
+      </div>
+      <aside class="contact-aside"><span class="eyebrow">EMAIL</span>
+        <a class="contact-email" href="mailto:SLAIAC.SERVICE@gmail.com">SLAIAC.SERVICE@gmail.com</a>
+        <p>${m.sendingNote}</p>
+        <a class="inline-link" href="mailto:SLAIAC.SERVICE@gmail.com">${m.directEmail} ${icon("arrowUpRight")}</a>
+      </aside>
+    </section>`;
 }
 
 function aboutView(locale, c) {
@@ -1299,6 +1332,54 @@ function bindPageActions(locale, c) {
     button.innerHTML = `${clue.hidden ? c.reveal : c.hide} ${icon("arrowRight")}`;
   }));
   bindEditionActions(locale, c);
+  bindContactActions(locale);
+}
+
+function bindContactActions(locale) {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+  const m = MIGRATION_COPY[locale];
+  const status = document.getElementById("form-status");
+  const button = form.querySelector('button[type="submit"]');
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+    button.disabled = true;
+    status.className = "form-status";
+    status.textContent = m.sending;
+    try {
+      const payload = Object.fromEntries(new FormData(form));
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      const data = await response.json();
+      if (!response.ok || data.success !== true) throw new Error("Form delivery was not confirmed");
+      form.reset();
+      status.className = "form-status form-success";
+      status.innerHTML = `<h3>${m.sentTitle}</h3><p>${m.sentText}</p>`;
+    } catch {
+      const fields = new FormData(form);
+      const emailSubject = ["SLAIAC Studio", fields.get("topic")].filter(Boolean).join(" · ");
+      const emailBody = [
+        `${m.name}: ${fields.get("name") || ""}`,
+        `${m.email}: ${fields.get("email") || ""}`,
+        `${m.website}: ${fields.get("website") || ""}`,
+        "",
+        String(fields.get("message") || ""),
+      ].join("\n");
+      const emailLink = `mailto:SLAIAC.SERVICE@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      status.className = "form-status form-error";
+      status.innerHTML = `<p>${m.sendError}</p><div class="form-fallback"><a href="${emailLink}">${m.directEmail} ${icon("arrowUpRight")}</a><a href="https://slaiac.wordpress.com/contact/" target="_blank" rel="noopener noreferrer">${m.oldContact} ${icon("arrowUpRight")}</a></div>`;
+    } finally {
+      clearTimeout(timeout);
+      button.disabled = false;
+    }
+  });
 }
 
 function bindEditionActions(locale, c) {
