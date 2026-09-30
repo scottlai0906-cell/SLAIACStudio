@@ -512,8 +512,8 @@ const MIGRATION_COPY = {
     contactFormTitle: "傳送訊息", name: "姓名", email: "電子郵件", subject: "聯絡事項", website: "網站（選填）", message: "內容",
     subjectPlaceholder: "請選擇", subjectShopper: "ShopperPro 使用回饋", subjectAccount: "AccountBox 使用回饋",
     subjectSuggestion: "建議", subjectChat: "交流", subjectOther: "其他",
-    send: "送出訊息", sendingNote: "送出後會由 FormSubmit 處理，再寄至 SLAIAC.SERVICE@gmail.com。",
-    privacyNote: "請勿填入密碼或其他敏感資料。表單經 FormSubmit 傳送至 Gmail；FormSubmit 可能暫存提交內容。提交即表示同意此傳送方式。",
+    send: "送出訊息", sendingNote: "送出後會由 Web3Forms 處理，再寄至 SLAIAC.SERVICE@gmail.com。",
+    privacyNote: "請勿填入密碼或其他敏感資料。姓名、電子郵件與訊息會經 Web3Forms 寄至 Gmail；Web3Forms 的提交記錄設定為 30 天後刪除。",
     sentTitle: "訊息已送出", sentText: "感謝來信。若有需要，我們會透過你填寫的電子郵件回覆。",
     sending: "傳送中…", sendError: "目前無法確認表單是否送達。請直接寄信，或使用舊站聯絡頁；你填寫的內容仍保留在此頁。",
     oldContact: "開啟舊站聯絡頁", sendAnother: "再寫一封", directEmail: "也可以直接寄信", historyLinks: "相關舊站內容",
@@ -532,8 +532,8 @@ const MIGRATION_COPY = {
     contactFormTitle: "发送消息", name: "姓名", email: "电子邮箱", subject: "联系事项", website: "网站（选填）", message: "内容",
     subjectPlaceholder: "请选择", subjectShopper: "ShopperPro 使用反馈", subjectAccount: "AccountBox 使用反馈",
     subjectSuggestion: "建议", subjectChat: "交流", subjectOther: "其他",
-    send: "发送消息", sendingNote: "提交后由 FormSubmit 处理，再寄至 SLAIAC.SERVICE@gmail.com。",
-    privacyNote: "请勿填写密码或其他敏感资料。表单经 FormSubmit 传送至 Gmail；FormSubmit 可能暂存提交内容。提交即表示同意此传送方式。",
+    send: "发送消息", sendingNote: "提交后由 Web3Forms 处理，再寄至 SLAIAC.SERVICE@gmail.com。",
+    privacyNote: "请勿填写密码或其他敏感资料。姓名、电子邮箱与消息会经 Web3Forms 寄至 Gmail；Web3Forms 的提交记录设置为 30 天后删除。",
     sentTitle: "消息已发送", sentText: "感谢来信。如有需要，我们会通过你填写的电子邮箱回复。",
     sending: "发送中…", sendError: "目前无法确认表单是否送达。请直接发邮件，或使用旧站联系页面；你填写的内容仍保留在此页。",
     oldContact: "打开旧站联系页面", sendAnother: "再写一封", directEmail: "也可以直接发邮件", historyLinks: "相关旧站内容",
@@ -552,8 +552,8 @@ const MIGRATION_COPY = {
     contactFormTitle: "Send a message", name: "Name", email: "Email", subject: "Topic", website: "Website (optional)", message: "Message",
     subjectPlaceholder: "Choose a topic", subjectShopper: "ShopperPro feedback", subjectAccount: "AccountBox feedback",
     subjectSuggestion: "Suggestion", subjectChat: "Say hello", subjectOther: "Other",
-    send: "Send message", sendingNote: "FormSubmit processes this form and forwards it to SLAIAC.SERVICE@gmail.com.",
-    privacyNote: "Please do not include passwords or other sensitive data. The form is sent through FormSubmit to Gmail; FormSubmit may temporarily retain submissions. By sending, you agree to this delivery method.",
+    send: "Send message", sendingNote: "Web3Forms processes this form and forwards it to SLAIAC.SERVICE@gmail.com.",
+    privacyNote: "Do not include passwords or other sensitive data. Your name, email and message go through Web3Forms to Gmail; Web3Forms is set to delete submission records after 30 days.",
     sentTitle: "Message submitted", sentText: "Thank you. We will reply to the email address you provided if a response is needed.",
     sending: "Sending…", sendError: "We could not confirm delivery. Please email us directly or use the old contact page. Your message remains in this form.",
     oldContact: "Open old contact page", sendAnother: "Send another", directEmail: "Or email directly", historyLinks: "Related archive",
@@ -1290,10 +1290,10 @@ function contactView(locale, c) {
   return `${pageHero(locale, c, "CONTACT SLAIAC STUDIO", m.contactTitle, m.contactIntro)}
     <section class="container section contact-layout">
       <div class="contact-panel"><h2>${m.contactFormTitle}</h2>
-        <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/SLAIAC.SERVICE@gmail.com" method="POST" accept-charset="UTF-8">
-          <input type="hidden" name="_subject" value="SLAIAC Studio website contact" />
-          <input type="hidden" name="_template" value="table" />
-          <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8">
+          <input type="hidden" name="access_key" value="5038de14-d839-459d-8987-b2c54e641b8f" />
+          <input type="hidden" name="subject" value="SLAIAC Studio website contact" />
+          <input class="form-honey" type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" />
           <div class="form-grid">
             <label>${m.name}<input type="text" name="name" autocomplete="name" maxlength="120" required /></label>
             <label>${m.email}<input type="email" name="email" autocomplete="email" maxlength="254" required /></label>
