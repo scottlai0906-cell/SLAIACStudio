@@ -370,12 +370,18 @@ img { display: block; max-width: 100%; }
 .guide-history { margin-top: 42px; }
 .guide-history h2 { font-size: 24px; }
 .guide-history .archive-link-heading { font-size: 15px; }
-.guide-image-dialog { width: min(960px, calc(100vw - 30px)); max-height: calc(100dvh - 30px); margin: auto; padding: 48px 22px 20px; border: 1px solid #3c6077; border-radius: 15px; background: #0b1421; color: var(--text); }
+.guide-image-dialog { width: min(1200px, calc(100vw - 24px)); height: calc(100dvh - 24px); max-height: calc(100dvh - 24px); margin: auto; padding: 14px; overflow: hidden; border: 1px solid #3c6077; border-radius: 15px; background: #0b1421; color: var(--text); }
+.guide-image-dialog[open] { display: flex; flex-direction: column; gap: 12px; }
 .guide-image-dialog::backdrop { background: rgb(2 8 15 / 88%); }
-.guide-image-dialog figure { margin: 0; text-align: center; }
-.guide-image-dialog img { display: block; max-width: 100%; max-height: calc(100dvh - 142px); height: auto; margin: auto; object-fit: contain; }
-.guide-image-dialog figcaption { margin-top: 15px; color: var(--muted); font-size: 13px; }
-.guide-image-close { position: absolute; top: 10px; right: 12px; display: grid; place-items: center; width: 32px; height: 32px; background: #203b4e; color: white; border: 1px solid #497188; border-radius: 50%; cursor: pointer; }
+.guide-image-toolbar { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.guide-image-toolbar button { min-height: 36px; padding: 6px 12px; color: var(--text); background: #203b4e; border: 1px solid #497188; border-radius: 7px; font-size: 13px; }
+.guide-image-toolbar button:disabled { opacity: .45; cursor: default; }
+.guide-zoom-level { min-width: 48px; text-align: center; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.guide-image-stage { flex: 1 1 auto; min-height: 0; overflow: auto; overscroll-behavior: contain; border-radius: 6px; background: #07101b; }
+.guide-image-stage figure { display: flex; justify-content: center; align-items: flex-start; width: max-content; min-width: 100%; margin: 0; }
+.guide-image-stage img { display: block; width: 100%; max-width: none; max-height: none; height: auto; margin: 0; }
+.guide-image-caption { flex: 0 0 auto; margin: 0; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.guide-image-toolbar .guide-image-close { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; margin-left: auto; border-radius: 50%; cursor: pointer; }
 .guide-image-close svg { width: 18px; height: 18px; }
 .studio-values { padding-top: 15px; }
 .studio-value-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin-top: 30px; }
@@ -3050,6 +3056,7 @@ const SITE_COPY = {
     futureText: "AccountBox 與 ShopperPro 是我們對日常需求的兩種回應。另有兩個面向 Mac 與 Windows 的新方向正在醞釀；更多細節，會在準備好時揭曉。",
     downloadTitle: "把好工具，帶進日常。", downloadApp: "在 App Store 查看", scan: "掃描下載", paidStatus: "ShopperPro 買斷版 1.2.0：送審中",
     enlarge: "放大截圖", close: "關閉截圖", imageHint: "點圖放大", accountScreen: "AccountBox 原站功能截圖", screenshot: "操作畫面", searchIcon: "搜尋按鈕", confirmIcon: "確認按鈕",
+    zoomIn: "放大圖片", zoomOut: "縮小圖片", fitImage: "符合視窗", zoomControls: "圖片檢視控制", zoomLevel: "相對縮圖的倍率", panImage: "圖片檢視區，可捲動查看",
     history: "歷史更新", accountNotice: "保留原站內容與功能截圖；畫面及部分操作可能與目前版本不同，請以 App 內實際介面為準。",
     videoTitle: "AccountBox 版本影片", videoCaption: "AccountBox · 最新 iOS 版本", videoFallback: "下載影片", adsEdition: "廣告版",
   },
@@ -3067,6 +3074,7 @@ const SITE_COPY = {
     futureText: "AccountBox 与 ShopperPro 是我们对日常需求的两种回应。另有两个面向 Mac 与 Windows 的新方向正在酝酿；更多细节，会在准备好时揭晓。",
     downloadTitle: "把好工具，带进日常。", downloadApp: "在 App Store 查看", scan: "扫码下载", paidStatus: "ShopperPro 买断版 1.2.0：审核中",
     enlarge: "放大截图", close: "关闭截图", imageHint: "点图放大", accountScreen: "AccountBox 原站功能截图", screenshot: "操作画面", searchIcon: "搜索按钮", confirmIcon: "确认按钮",
+    zoomIn: "放大图片", zoomOut: "缩小图片", fitImage: "适合窗口", zoomControls: "图片查看控制", zoomLevel: "相对缩略图的倍率", panImage: "图片查看区，可滚动查看",
     history: "历史更新", accountNotice: "保留原站内容与功能截图；画面及部分操作可能与当前版本不同，请以 App 内实际界面为准。",
     videoTitle: "AccountBox 版本视频", videoCaption: "AccountBox · 最新 iOS 版本", videoFallback: "下载视频", adsEdition: "广告版",
   },
@@ -3084,6 +3092,7 @@ const SITE_COPY = {
     futureText: "AccountBox and ShopperPro are two ways we address everyday needs. Two new directions for Mac and Windows are taking shape. We will reveal more when they are ready.",
     downloadTitle: "Bring useful tools into your day.", downloadApp: "View on the App Store", scan: "Scan to download", paidStatus: "ShopperPro paid edition 1.2.0: under review",
     enlarge: "Enlarge screenshot", close: "Close screenshot", imageHint: "Tap to enlarge", accountScreen: "Original AccountBox screen", screenshot: "App screen", searchIcon: "Search button", confirmIcon: "Confirmation button",
+    zoomIn: "Zoom in", zoomOut: "Zoom out", fitImage: "Fit to screen", zoomControls: "Image viewing controls", zoomLevel: "Scale relative to thumbnail", panImage: "Image viewing area, scroll to explore",
     history: "Earlier updates", accountNotice: "The original guide and screens are preserved. Some screens and steps may differ from the current app; follow the interface in your installed version.",
     videoTitle: "AccountBox version video", videoCaption: "AccountBox · Latest iOS version", videoFallback: "Download video", adsEdition: "Ad-supported edition",
   },
@@ -3564,11 +3573,68 @@ function bindGuideImages(locale) {
     const path = button.dataset.guideImage;
     const caption = button.dataset.guideCaption;
     dialog.setAttribute("aria-label",caption);
-    dialog.innerHTML = `<button class="guide-image-close" type="button" aria-label="${text.close}">${icon("close")}</button><figure><img decoding="async" loading="eager" fetchpriority="high" src="${publicAssetUrl(escapeArchive(path))}" alt="${escapeArchive(caption)}" /><figcaption>${escapeArchive(caption)}</figcaption></figure>`;
+    dialog.innerHTML = `<div class="guide-image-toolbar" role="group" aria-label="${text.zoomControls}"><button type="button" data-guide-zoom="out" aria-label="${text.zoomOut}" disabled>−</button><output class="guide-zoom-level" aria-label="${text.zoomLevel}" aria-live="polite">—</output><button type="button" data-guide-zoom="in" aria-label="${text.zoomIn}" disabled>＋</button><button type="button" data-guide-zoom="fit" disabled>${text.fitImage}</button><button class="guide-image-close" type="button" aria-label="${text.close}" autofocus>${icon("close")}</button></div><div class="guide-image-stage" tabindex="0" aria-label="${text.panImage}"><figure><img decoding="async" loading="eager" fetchpriority="high" src="${publicAssetUrl(escapeArchive(path))}" alt="${escapeArchive(caption)}" /></figure></div><p class="guide-image-caption">${escapeArchive(caption)}</p>`;
     const image = dialog.querySelector("img");
-    if (typeof SITE_INLINE_ASSETS !== "undefined" && SITE_INLINE_ASSETS[path]) image.src = SITE_INLINE_ASSETS[path];
-    dialog.querySelector("button").addEventListener("click",() => dialog.close());
+    const thumbnail = button.querySelector("img");
+    const stage = dialog.querySelector(".guide-image-stage");
+    const zoomOut = dialog.querySelector('[data-guide-zoom="out"]');
+    const zoomIn = dialog.querySelector('[data-guide-zoom="in"]');
+    const fit = dialog.querySelector('[data-guide-zoom="fit"]');
+    const level = dialog.querySelector(".guide-zoom-level");
+    let referenceWidth = 1, fitWidth = 1, currentWidth = 1, minimumWidth = 1, maximumWidth = 1;
+    let mode = "initial";
+    function measure() {
+      const ratio = image.naturalWidth / image.naturalHeight;
+      const rect = thumbnail.getBoundingClientRect();
+      // Thumbnail object-fit can leave empty space inside its element box.
+      // Compare actual painted pixels, not the width of that box.
+      referenceWidth = Math.max(1, Math.min(rect.width, rect.height * ratio));
+      fitWidth = Math.max(1, Math.min(stage.clientWidth, stage.clientHeight * ratio));
+      minimumWidth = Math.max(1, Math.min(fitWidth, referenceWidth) / 2);
+      maximumWidth = Math.max(fitWidth, referenceWidth * 1.5) * 4;
+    }
+    function draw(width, preserveCenter = false) {
+      const old = image.getBoundingClientRect();
+      const view = stage.getBoundingClientRect();
+      const centerX = old.width ? (view.left + stage.clientWidth / 2 - old.left) / old.width : .5;
+      const centerY = old.height ? (view.top + stage.clientHeight / 2 - old.top) / old.height : .5;
+      currentWidth = Math.max(minimumWidth, Math.min(maximumWidth, width));
+      image.style.width = `${currentWidth}px`;
+      level.textContent = `${Math.round(currentWidth / referenceWidth * 100)}%`;
+      zoomOut.disabled = currentWidth <= minimumWidth + 1;
+      zoomIn.disabled = currentWidth >= maximumWidth - 1;
+      fit.disabled = false;
+      if (preserveCenter) {
+        const next = image.getBoundingClientRect();
+        stage.scrollLeft += next.left + next.width * centerX - view.left - stage.clientWidth / 2;
+        stage.scrollTop += next.top + next.height * centerY - view.top - stage.clientHeight / 2;
+      } else {
+        stage.scrollLeft = Math.max(0, (stage.scrollWidth - stage.clientWidth) / 2);
+        stage.scrollTop = 0;
+      }
+    }
+    function initialize() {
+      if (!image.naturalWidth || !image.naturalHeight || !dialog.open) return;
+      measure();
+      // Low-resolution originals must still open larger than their thumbnails.
+      // If that exceeds the viewport, the stage scrolls instead of shrinking.
+      draw(Math.max(fitWidth, referenceWidth * 1.5));
+    }
+    zoomIn.addEventListener("click", () => { mode = "custom"; draw(currentWidth * 1.25, true); });
+    zoomOut.addEventListener("click", () => { mode = "custom"; draw(currentWidth / 1.25, true); });
+    fit.addEventListener("click", () => { mode = "fit"; measure(); draw(fitWidth); });
+    dialog.querySelector(".guide-image-close").addEventListener("click", () => dialog.close());
+    const resize = () => {
+      if (!image.naturalWidth || !dialog.open) return;
+      const scale = currentWidth / referenceWidth;
+      measure();
+      draw(mode === "fit" ? fitWidth : mode === "initial" ? Math.max(fitWidth, referenceWidth * 1.5) : referenceWidth * scale, true);
+    };
+    window.addEventListener("resize", resize);
+    dialog.addEventListener("close", () => window.removeEventListener("resize", resize), { once: true });
     dialog.showModal();
+    if (image.complete && image.naturalWidth) initialize();
+    else image.addEventListener("load", initialize, { once: true });
   }));
 }
 
