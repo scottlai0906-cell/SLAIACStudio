@@ -4236,7 +4236,7 @@ function editionMarkup(locale, c) {
   const badge = ads ? c.adsBadge : c.paidBadge;
   const storeUrl = ads ? STORE_LINKS.shopperAds : STORE_LINKS.shopperPaid;
   return `<div class="edition-tabs" role="tablist" aria-label="${c.chooseEdition}"><button type="button" class="edition-tab" role="tab" data-edition="ads" aria-selected="${ads}" aria-controls="edition-panel">${c.adsTab}</button><button type="button" class="edition-tab" role="tab" data-edition="paid" aria-selected="${!ads}" aria-controls="edition-panel">${c.paidTab}</button></div>
-    <div class="edition-panel" id="edition-panel" role="tabpanel">${ads ? '<img src="${publicAssetUrl("assets/shopperpro-ads-icon.png")}" alt="ShopperPro Ads app icon"/>' : '<div class="edition-placeholder" aria-hidden="true">SP</div>'}<div><h3>${title}</h3><p>${lead}</p><div class="detail-tags"><span class="detail-tag">${badge}</span><span class="detail-tag">iPhone</span></div>${externalLink(storeUrl, c.appStore, "button-secondary")}</div></div>
+    <div class="edition-panel" id="edition-panel" role="tabpanel">${ads ? `<img src="${publicAssetUrl("assets/shopperpro-ads-icon.png")}" alt="ShopperPro Ads app icon"/>` : '<div class="edition-placeholder" aria-hidden="true">SP</div>'}<div><h3>${title}</h3><p>${lead}</p><div class="detail-tags"><span class="detail-tag">${badge}</span><span class="detail-tag">iPhone</span></div>${externalLink(storeUrl, c.appStore, "button-secondary")}</div></div>
     ${!ads ? `<div class="status-note">${icon("info")}<span>${c.paidNotice}</span></div>` : ""}`;
 }
 
