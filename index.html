@@ -412,7 +412,27 @@ img { display: block; max-width: 100%; }
   .studio-value-grid section { padding: 24px; }
 }
 
+/* The circle is 80% of the approved 52/48px preview; the hit area stays 44px. */
+.back-to-top { --top-diameter: 41.6px; --top-right: 24px; --top-bottom: 24px; position: fixed; z-index: 15; right: calc(var(--top-right) + env(safe-area-inset-right, 0px) - (44px - var(--top-diameter)) / 2); bottom: calc(var(--top-bottom) + env(safe-area-inset-bottom, 0px) - (44px - var(--top-diameter)) / 2); width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--accent); transition: transform .16s; }
+.back-to-top { opacity: .8; }
+.back-to-top[hidden] { display: none; }
+.back-to-top::before { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: var(--top-diameter); height: var(--top-diameter); border: 1px solid var(--accent); border-radius: 50%; background: #142d3e; box-shadow: 0 6px 19px rgb(0 0 0 / 44%); transition: background .16s; }
+.back-to-top svg { position: relative; z-index: 1; width: 18.4px; height: 18.4px; }
+@media (hover: hover) {
+  .back-to-top:hover { transform: translateY(-2px); }
+  .back-to-top:hover::before { background: #24465b; }
+}
+.footer-inner { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+@media (max-width: 750px) {
+  .back-to-top { --top-diameter: 38.4px; --top-right: 16px; --top-bottom: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .back-to-top, .back-to-top::before { transition: none; }
+}
+
 </style>
+    
     
     
     
@@ -425,6 +445,7 @@ img { display: block; max-width: 100%; }
       <header class="site-header" id="site-header"></header>
       <main id="app" tabindex="-1"></main>
       <footer class="site-footer" id="site-footer"></footer>
+      <button id="back-to-top" class="back-to-top" type="button" aria-label="返回頁頂" hidden></button>
     </div>
 
     <noscript>請啟用 JavaScript，才能瀏覽此網站。</noscript>
@@ -3043,6 +3064,7 @@ const SHOPPER_GUIDE = {
 // Additional public copy for the approved guide, About, download and video update.
 const SITE_COPY = {
   "zh-Hant": {
+    backToTop: "返回頁頂",
     aboutHeading: "好工具，從理解日常開始。",
     aboutParagraphs: ["我們相信，軟體的價值，來自它能否幫你把一件事情做得更輕鬆。從整理重要資訊，到安排每一次採買，SLAIAC Studio 把生活中反覆遇到的小困擾，轉化為清楚、實用的工具。", "我們重視每一次操作的細節，也在意工具能否長久陪伴使用者。透過持續更新、清楚的使用說明與真實的回饋，讓產品一步一步變得更順手。"],
     valuesTitle: "我們在意的事",
@@ -3061,6 +3083,7 @@ const SITE_COPY = {
     videoTitle: "AccountBox 版本影片", videoCaption: "AccountBox · 最新 iOS 版本", videoFallback: "下載影片", adsEdition: "廣告版",
   },
   "zh-Hans": {
+    backToTop: "返回顶部",
     aboutHeading: "好工具，从理解日常开始。",
     aboutParagraphs: ["我们相信，软件的价值，来自它能否帮你把一件事情做得更轻松。从整理重要信息，到安排每一次采购，SLAIAC Studio 把生活中反复遇到的小困扰，转化为清楚、实用的工具。", "我们重视每一次操作的细节，也在意工具能否长久陪伴用户。通过持续更新、清楚的使用说明与真实的反馈，让产品一步一步变得更顺手。"],
     valuesTitle: "我们在意的事",
@@ -3079,6 +3102,7 @@ const SITE_COPY = {
     videoTitle: "AccountBox 版本视频", videoCaption: "AccountBox · 最新 iOS 版本", videoFallback: "下载视频", adsEdition: "广告版",
   },
   en: {
+    backToTop: "Back to top",
     aboutHeading: "Good tools begin with understanding everyday life.",
     aboutParagraphs: ["We believe software earns its place by making a task easier. From organizing important information to planning the next shopping trip, SLAIAC Studio turns recurring everyday frustrations into clear, practical tools.", "We care about the details of each interaction and about making tools people can keep using. Through ongoing updates, clear guides and real feedback, we improve our products one step at a time."],
     valuesTitle: "What we care about",
@@ -3638,6 +3662,80 @@ function bindGuideImages(locale) {
   }));
 }
 
+// One controller for the shared button; page renders only reset its state.
+function createBackToTop(button) {
+  const idleDelay = 2000;
+  let idleTimer;
+  let lastScrollAt = 0;
+  let hasScrolled = false;
+
+  function position() {
+    const page = document.documentElement;
+    const y = Math.max(0, window.scrollY);
+    const end = Math.max(0, page.scrollHeight - page.clientHeight);
+    return { atTop: y <= 2, atBottom: end > 2 && y >= end - 2 };
+  }
+
+  function blocked() {
+    return Boolean(document.querySelector('dialog[open], .main-nav.open'));
+  }
+
+  function clearIdle() {
+    window.clearTimeout(idleTimer);
+    idleTimer = undefined;
+  }
+
+  function refresh() {
+    clearIdle();
+    const { atTop, atBottom } = position();
+    if (atTop || blocked()) {
+      if (atTop && document.activeElement === button) {
+        document.getElementById('app').focus({ preventScroll: true });
+      }
+      button.hidden = true;
+      return;
+    }
+    if (atBottom) {
+      button.hidden = false;
+      return;
+    }
+    const remaining = hasScrolled ? idleDelay - (Date.now() - lastScrollAt) : 0;
+    button.hidden = remaining <= 0;
+    if (remaining > 0) idleTimer = window.setTimeout(refresh, remaining);
+  }
+
+  window.addEventListener('scroll', () => {
+    hasScrolled = true;
+    lastScrollAt = Date.now();
+    refresh();
+  }, { passive: true });
+  window.addEventListener('resize', refresh, { passive: true });
+
+  // Dialogs, the mobile menu and late layout changes can alter whether the
+  // button belongs on screen, even without a document scroll event.
+  if (typeof MutationObserver !== 'undefined') {
+    new MutationObserver(refresh).observe(document.querySelector('.site-shell'), {
+      subtree: true, attributes: true, attributeFilter: ['open', 'class'],
+    });
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(refresh).observe(document.body);
+  }
+
+  button.addEventListener('click', () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduced ? 'instant' : 'smooth' });
+  });
+
+  return {
+    reset() {
+      hasScrolled = false;
+      lastScrollAt = 0;
+      refresh();
+    },
+  };
+}
+
 const LOCALES = ["zh-Hant", "zh-Hans", "en"];
 const STORE_LINKS = {
   accountbox: "https://apps.apple.com/app/id1209099468",
@@ -3647,6 +3745,7 @@ const STORE_LINKS = {
 
 const ICON_PATHS = {
   arrowRight: '<path d="M5 12h14m-6-6 6 6-6 6"/>',
+  arrowUp: '<path d="M12 19V5m-6 6 6-6 6 6"/>',
   arrowUpRight: '<path d="M7 17 17 7M8 7h9v9"/>',
   chevron: '<path d="m9 18 6-6-6-6"/>',
   globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.5 4 5.5 4 9s-1.3 6.5-4 9c-2.7-2.5-4-5.5-4-9s1.3-6.5 4-9Z"/>',
@@ -4146,6 +4245,17 @@ const CONTENT = {
 
 const ARTICLE_ORDER = ["accountbox-132", "shopper-ads-120", "accountbox-131", "accountbox-130"];
 const state = { edition: "ads", menuOpen: false, lastRoute: null };
+let backToTopController;
+
+function bindBackToTop(locale) {
+  const button = document.getElementById("back-to-top");
+  const label = SITE_COPY[locale].backToTop;
+  button.setAttribute("aria-label", label);
+  button.setAttribute("title", label);
+  button.innerHTML = icon("arrowUp");
+  if (!backToTopController) backToTopController = createBackToTop(button);
+  backToTopController.reset();
+}
 
 function storedLocale() {
   try {
@@ -4562,6 +4672,7 @@ function render() {
   });
   if (state.lastRoute !== null && state.lastRoute !== route) window.scrollTo({ top: 0, behavior: "auto" });
   state.lastRoute = route;
+  bindBackToTop(locale);
 }
 
 window.addEventListener("hashchange", () => {
