@@ -414,7 +414,8 @@ img { display: block; max-width: 100%; }
 
 /* The circle is 80% of the approved 52/48px preview; the hit area stays 44px. */
 .back-to-top { --top-diameter: 41.6px; --top-right: 24px; --top-bottom: 24px; position: fixed; z-index: 15; right: calc(var(--top-right) + env(safe-area-inset-right, 0px) - (44px - var(--top-diameter)) / 2); bottom: calc(var(--top-bottom) + env(safe-area-inset-bottom, 0px) - (44px - var(--top-diameter)) / 2); width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--accent); transition: transform .16s; }
-.back-to-top { opacity: .8; }
+.back-to-top { opacity: 0; pointer-events: none; transition: opacity .5s ease, transform .16s; }
+.back-to-top.is-visible { opacity: .8; pointer-events: auto; }
 .back-to-top[hidden] { display: none; }
 .back-to-top::before { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: var(--top-diameter); height: var(--top-diameter); border: 1px solid var(--accent); border-radius: 50%; background: #142d3e; box-shadow: 0 6px 19px rgb(0 0 0 / 44%); transition: background .16s; }
 .back-to-top svg { position: relative; z-index: 1; width: 18.4px; height: 18.4px; }
@@ -3668,6 +3669,33 @@ function createBackToTop(button) {
   let idleTimer;
   let lastScrollAt = 0;
   let hasScrolled = false;
+  let visible = false;
+  let fadeTimer;
+
+  function show() {
+    if (visible) return;
+    window.clearTimeout(fadeTimer);
+    const wasHidden = button.hidden;
+    button.hidden = false;
+    button.inert = false;
+    // Establish the transparent style before animating from display:none.
+    if (wasHidden) void button.offsetWidth;
+    visible = true;
+    button.classList.add('is-visible');
+  }
+
+  function hide(immediate = false) {
+    if (!visible && !immediate) return;
+    visible = false;
+    window.clearTimeout(fadeTimer);
+    button.classList.remove('is-visible');
+    button.inert = true;
+    if (immediate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      button.hidden = true;
+    } else {
+      fadeTimer = window.setTimeout(() => { button.hidden = true; }, 500);
+    }
+  }
 
   function position() {
     const page = document.documentElement;
@@ -3688,19 +3716,24 @@ function createBackToTop(button) {
   function refresh() {
     clearIdle();
     const { atTop, atBottom } = position();
-    if (atTop || blocked()) {
+    if (blocked()) {
+      hide(true);
+      return;
+    }
+    if (atTop) {
       if (atTop && document.activeElement === button) {
         document.getElementById('app').focus({ preventScroll: true });
       }
-      button.hidden = true;
+      hide();
       return;
     }
     if (atBottom) {
-      button.hidden = false;
+      show();
       return;
     }
     const remaining = hasScrolled ? idleDelay - (Date.now() - lastScrollAt) : 0;
-    button.hidden = remaining <= 0;
+    if (remaining > 0) show();
+    else hide();
     if (remaining > 0) idleTimer = window.setTimeout(refresh, remaining);
   }
 
@@ -3714,7 +3747,10 @@ function createBackToTop(button) {
   // Dialogs, the mobile menu and late layout changes can alter whether the
   // button belongs on screen, even without a document scroll event.
   if (typeof MutationObserver !== 'undefined') {
-    new MutationObserver(refresh).observe(document.querySelector('.site-shell'), {
+    new MutationObserver(records => {
+      // Its own visibility class must not trigger another state update.
+      if (records.some(record => record.target !== button)) refresh();
+    }).observe(document.querySelector('.site-shell'), {
       subtree: true, attributes: true, attributeFilter: ['open', 'class'],
     });
   }
@@ -3731,6 +3767,7 @@ function createBackToTop(button) {
     reset() {
       hasScrolled = false;
       lastScrollAt = 0;
+      hide(true);
       refresh();
     },
   };
