@@ -349,7 +349,7 @@ img { display: block; max-width: 100%; }
 /* Approved shared download units and guide illustrations. */
 .footer-downloads { padding: 46px 0 28px; border-bottom: 1px solid var(--line); text-align: center; }
 .footer-downloads h2 { margin: 13px 0 28px; font-size: clamp(23px,3vw,31px); }
-.download-units { display: grid; grid-template-columns: repeat(2, 220px); justify-content: center; gap: 38px; }
+.download-units { display: grid; grid-template-columns: repeat(3, 220px); justify-content: center; gap: 26px; }
 .app-download-unit { display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 24px 20px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg,#142c3d,#101e2d); transition: border-color .18s; }
 .app-download-unit:hover { border-color: var(--accent); }
 .app-download-unit h3 { margin: 0; font-size: 16px; letter-spacing: .02em; }
@@ -396,10 +396,11 @@ img { display: block; max-width: 100%; }
 .release-video video { display: block; width: min(100%,360px); aspect-ratio: 9 / 16; height: auto; border: 1px solid #355168; border-radius: 16px; background: #020509; }
 .release-video figcaption { color: var(--soft); font-size: 12px; margin-top: 13px; }
 @media (max-width: 750px) {
+  .download-units { grid-template-columns: repeat(2,minmax(0,220px)); }
   .guide-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 560px) {
-  .download-units { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .download-units { grid-template-columns: minmax(0,260px); gap: 20px; }
   .app-download-unit { padding: 20px 8px; gap: 13px; }
   .app-download-unit h3 { font-size: 13px; }
   .download-app-icon { width: 70px; height: 70px; border-radius: 16px; }
@@ -451,7 +452,7 @@ img { display: block; max-width: 100%; }
 
     <noscript>請啟用 JavaScript，才能瀏覽此網站。</noscript>
   <script>
-const PUBLIC_ASSET_URLS = {"assets/accountbox-icon.png": "media-1e788afdecd0ff38d35e.png", "assets/accountbox-qr.png": "media-bf3d0331d542b2771c69.png", "assets/accountbox-video-poster.jpg": "media-e9fc171879a019028a9b.jpg", "assets/app-store-badge.png": "media-d98febbaee20bde740d4.png", "assets/archive/2017-03-check_button.png": "media-9245c6cc0eef78f83ce5.png", "assets/archive/2017-03-cleantime-en1.jpg": "media-8acb5ada41fde61d961e.jpg", "assets/archive/2017-03-cleartime-tw1.jpg": "media-4cb5bbd2baa45683a464.jpg", "assets/archive/2017-03-instruction_1.png": "media-0a0c9a8634db56535c3a.png", "assets/archive/2017-03-instruction_2.png": "media-931b24cd89478f40c3a1.png", "assets/archive/2017-03-language-en1.jpg": "media-a1e184c2f20124a6c018.jpg", "assets/archive/2017-03-language-tw1.jpg": "media-d8f0274963e60631530f.jpg", "assets/archive/2017-03-pb_logo_1-2-0_2_128.png": "media-86bdaeff2a529a13afb8.png", "assets/archive/2017-03-screenshot_1_en.png": "media-5467df084a3e1b2c276e.png", "assets/archive/2017-03-screenshot_1_tw.png": "media-c45742648dfcb6f7045c.png", "assets/archive/2017-03-screenshot_1_tw1.png": "media-dadb3721a0ba871336c1.png", "assets/archive/2017-03-screenshot_3_tw.png": "media-5ee116c222b85183d3b5.png", "assets/archive/2017-03-screenshot_4_tw.png": "media-67428732c1a42b7cc148.png", "assets/archive/2017-03-screenshot_5_en.png": "media-b999e1a13cb2e1c7d000.png", "assets/archive/2017-03-screenshot_5_tw.png": "media-00733bd16275fecc9d66.png", "assets/archive/2017-03-screenshot_add_accounts.png": "media-e6a5f6f8ca69276c7a90.png", "assets/archive/2017-03-screenshot_iphone-6_ios-10-2_03-09-2017_16-09-35-0091.png": "media-3480078592aa58c6fd61.png", "assets/archive/2017-03-screenshot_iphone-6_ios-10-2_03-09-2017_16-10-10-0101.png": "media-7575f22e36a5792664c0.png", "assets/archive/2017-03-screenshot_iphone-6_ios-10-2_03-09-2017_16-10-25-0101.png": "media-1d3ab1c2c31e7c149c2d.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_15-44-28-044.png": "media-9a2c10a7a820d658a588.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_15-47-26-047-e68bb7e8b29d.png": "media-5d3ea28476ee4921a9a6.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_15-53-37-053.png": "media-39d133e7cc1dcc3591fa.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_15-53-56-053-e68bb7e8b29d1.png": "media-fecb3f03c206005a13f7.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-00-26-000.png": "media-47177d7b9132f2f8e0f2.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-01-43-001.png": "media-8dc78602b09b91d4ceb5.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-04-26-004-e68bb7e8b29d.png": "media-f4c3d9464c42a7619b27.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-04-37-004-e68bb7e8b29d.png": "media-df24cfd78095916a7f1e.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-06-54-006-e68bb7e8b29d.png": "media-de65d54dc10d1499d7ca.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-06-54-006.png": "media-ed273b54d09c0c3a3637.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-08-30-008-e68bb7e8b29d.png": "media-0462798b2aec47b6a661.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-09-11-009-e68bb7e8b29d.png": "media-b9f7f839974db3ee5852.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-10-07-010.png": "media-eecf88015ccacff07498.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-10-27-010-e68bb7e8b29d.png": "media-4cf10e99fa6880a395fc.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-43-39-043-e68bb7e8b29d.png": "media-de6b58eb4bb722f87b2b.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-44-42-044-e68bb7e8b29d.png": "media-8a7b8191297fd80197b5.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_17-15-26-015-e68bb7e8b29d.png": "media-a42bb163cbd64adab71f.png", "assets/archive/2017-03-search_login_icon.png": "media-557b29006bc7e4fbc26d.png", "assets/archive/2017-03-share-en1.jpg": "media-de0032c9411d26d83475.jpg", "assets/archive/2017-03-share-tw1.jpg": "media-4d81332cc094f5bbeed6.jpg", "assets/archive/2017-04-img_2534.jpg": "media-5bd9a84a9c51ef1afb89.jpg", "assets/archive/2017-04-img_2535.jpg": "media-f2bd40463c1fed92865e.jpg", "assets/archive/2017-04-img_2536.jpg": "media-dd5a0a9687e94b3a0054.jpg", "assets/archive/2017-04-img_2537.jpg": "media-7341257de7f817f84944.jpg", "assets/archive/2017-04-img_2538.jpg": "media-0e4d3c44a6820b87ddf3.jpg", "assets/archive/2017-04-img_2539.jpg": "media-b8436be2beb6b4294e4a.jpg", "assets/archive/2017-04-img_2540.jpg": "media-0989a805fc4c6991cc9a.jpg", "assets/archive/2017-04-img_2541.jpg": "media-648430ef29f8d4a00a6d.jpg", "assets/archive/2017-04-img_2542.jpg": "media-ff4aef8c71591827c3ed.jpg", "assets/archive/2017-06-screenshot_1_tw.png": "media-1c72eacfe08eee1cd7f1.png", "assets/archive/2017-06-screenshot_2_tw.png": "media-ef81c7131928fdf47575.png", "assets/archive/2017-06-screenshot_3_tw.png": "media-35041af0bea56864dceb.png", "assets/archive/2017-06-screenshot_4_tw.png": "media-830bf56ef163710dddb2.png", "assets/archive/2017-06-screenshot_5_tw.png": "media-5d214914a9ce12cd14a2.png", "assets/archive/2017-06-shopperpro_appicon.png": "media-a2e9b8bc362c3cc34eb0.png", "assets/shopper-ads-qr.png": "media-da5c905ab2322dcf595d.png", "assets/shopper-guide-120/en/add-menu.jpg": "media-22bdfd271cde1bd4b26d.jpg", "assets/shopper-guide-120/en/barcode-crop.jpg": "media-4b39803423401c935df4.jpg", "assets/shopper-guide-120/en/barcode-name.jpg": "media-6e937776260732bb9f56.jpg", "assets/shopper-guide-120/en/barcode-results.jpg": "media-208aec6f6cc2375a5eb8.jpg", "assets/shopper-guide-120/en/edit.jpg": "media-df3a15f8b66ef9e19dd4.jpg", "assets/shopper-guide-120/en/history-details.jpg": "media-6959b8fc9fb8ef8dcf17.jpg", "assets/shopper-guide-120/en/history.jpg": "media-24fed31b151dbd2f5fea.jpg", "assets/shopper-guide-120/en/items.jpg": "media-c87a42817b4691139a2e.jpg", "assets/shopper-guide-120/en/languages.jpg": "media-c6c1475264fda0e9bf21.jpg", "assets/shopper-guide-120/en/list-create.jpg": "media-73e222e6b9e1c91900e3.jpg", "assets/shopper-guide-120/en/lists.jpg": "media-11ae6064bb8544d2f300.jpg", "assets/shopper-guide-120/en/manual.jpg": "media-81b237542e4b67d27012.jpg", "assets/shopper-guide-120/en/photo-source.jpg": "media-9ce1f482e17c9f381cf5.jpg", "assets/shopper-guide-120/en/prices.jpg": "media-1a4c813869d108485709.jpg", "assets/shopper-guide-120/en/purchased.jpg": "media-0e1bceb07f71ca798400.jpg", "assets/shopper-guide-120/en/reminders.jpg": "media-bbd5a307397e2598c87a.jpg", "assets/shopper-guide-120/en/settings.jpg": "media-c2c9da92f407c7d02007.jpg", "assets/shopper-guide-120/zh-Hans/add-menu.jpg": "media-3ca121792df43d443c9f.jpg", "assets/shopper-guide-120/zh-Hans/barcode-crop.jpg": "media-a05533c2d1161c354f34.jpg", "assets/shopper-guide-120/zh-Hans/barcode-name.jpg": "media-d77a8948426ee3e568f3.jpg", "assets/shopper-guide-120/zh-Hans/barcode-results.jpg": "media-c9f519a90ba17a3982fb.jpg", "assets/shopper-guide-120/zh-Hans/edit.jpg": "media-7b6f2e4ae6d6314a45e1.jpg", "assets/shopper-guide-120/zh-Hans/history-details.jpg": "media-a62339ec75e6cc9155b6.jpg", "assets/shopper-guide-120/zh-Hans/history.jpg": "media-5820d8c71c23abd79f6b.jpg", "assets/shopper-guide-120/zh-Hans/items.jpg": "media-3eb02b676bb4db19b420.jpg", "assets/shopper-guide-120/zh-Hans/languages.jpg": "media-7502ae65ac86ee8e5f39.jpg", "assets/shopper-guide-120/zh-Hans/list-create.jpg": "media-be730635452a9615811d.jpg", "assets/shopper-guide-120/zh-Hans/lists.jpg": "media-2a34ae9ee3ed0af0d985.jpg", "assets/shopper-guide-120/zh-Hans/manual.jpg": "media-5d99ec52b2024c4ffd1d.jpg", "assets/shopper-guide-120/zh-Hans/photo-source.jpg": "media-d479000647aee743accc.jpg", "assets/shopper-guide-120/zh-Hans/prices.jpg": "media-30fbfd1d9c0d6e4c0468.jpg", "assets/shopper-guide-120/zh-Hans/purchased.jpg": "media-27a62dffbb609ea9ca8a.jpg", "assets/shopper-guide-120/zh-Hans/reminders.jpg": "media-c328f85c1f5906232292.jpg", "assets/shopper-guide-120/zh-Hans/settings.jpg": "media-da49ac9d41ed6a5a8dd3.jpg", "assets/shopper-guide-120/zh-Hant/add-menu.jpg": "media-1fab690f4ba72d05da72.jpg", "assets/shopper-guide-120/zh-Hant/barcode-crop.jpg": "media-9b5ecaf7e08cbcf9571e.jpg", "assets/shopper-guide-120/zh-Hant/barcode-name.jpg": "media-cddf672c658b612e78f9.jpg", "assets/shopper-guide-120/zh-Hant/barcode-results.jpg": "media-df4179f2c1aa308d960f.jpg", "assets/shopper-guide-120/zh-Hant/edit.jpg": "media-b1261325c7146fccb4b8.jpg", "assets/shopper-guide-120/zh-Hant/history-details.jpg": "media-6ca6c87b36d8ed60d472.jpg", "assets/shopper-guide-120/zh-Hant/history.jpg": "media-70c6e52773117e32b1d9.jpg", "assets/shopper-guide-120/zh-Hant/items.jpg": "media-b265a29786a5b901b90f.jpg", "assets/shopper-guide-120/zh-Hant/languages.jpg": "media-91b8bf77cefd517108a6.jpg", "assets/shopper-guide-120/zh-Hant/list-create.jpg": "media-09c904a69ee311e293bf.jpg", "assets/shopper-guide-120/zh-Hant/lists.jpg": "media-38079cce9ea40c61c133.jpg", "assets/shopper-guide-120/zh-Hant/manual.jpg": "media-6edc6a74b4f8a6fb9c3b.jpg", "assets/shopper-guide-120/zh-Hant/photo-source.jpg": "media-97d757a2a6ea098ddefa.jpg", "assets/shopper-guide-120/zh-Hant/prices.jpg": "media-ca2a3a572a33d3514d52.jpg", "assets/shopper-guide-120/zh-Hant/purchased.jpg": "media-f4001e2a586ffd2eee1e.jpg", "assets/shopper-guide-120/zh-Hant/reminders.jpg": "media-250c0caf782ee1314663.jpg", "assets/shopper-guide-120/zh-Hant/settings.jpg": "media-df68930c161fe8885824.jpg", "assets/shopperpro-ads-icon.png": "media-f410add08db494587c7d.png", "assets/slaiac-logo.png": "media-784af194d831f4fbdb25.png"};
+const PUBLIC_ASSET_URLS = {"assets/accountbox-icon.png": "media-1e788afdecd0ff38d35e.png", "assets/accountbox-next-icon.jpg": "media-82a3b27fd71974a81ec2.jpg", "assets/accountbox-qr.png": "media-bf3d0331d542b2771c69.png", "assets/accountbox-video-poster.jpg": "media-e9fc171879a019028a9b.jpg", "assets/app-store-badge.png": "media-d98febbaee20bde740d4.png", "assets/archive/2017-03-check_button.png": "media-9245c6cc0eef78f83ce5.png", "assets/archive/2017-03-cleantime-en1.jpg": "media-8acb5ada41fde61d961e.jpg", "assets/archive/2017-03-cleartime-tw1.jpg": "media-4cb5bbd2baa45683a464.jpg", "assets/archive/2017-03-instruction_1.png": "media-0a0c9a8634db56535c3a.png", "assets/archive/2017-03-instruction_2.png": "media-931b24cd89478f40c3a1.png", "assets/archive/2017-03-language-en1.jpg": "media-a1e184c2f20124a6c018.jpg", "assets/archive/2017-03-language-tw1.jpg": "media-d8f0274963e60631530f.jpg", "assets/archive/2017-03-pb_logo_1-2-0_2_128.png": "media-86bdaeff2a529a13afb8.png", "assets/archive/2017-03-screenshot_1_en.png": "media-5467df084a3e1b2c276e.png", "assets/archive/2017-03-screenshot_1_tw.png": "media-c45742648dfcb6f7045c.png", "assets/archive/2017-03-screenshot_1_tw1.png": "media-dadb3721a0ba871336c1.png", "assets/archive/2017-03-screenshot_3_tw.png": "media-5ee116c222b85183d3b5.png", "assets/archive/2017-03-screenshot_4_tw.png": "media-67428732c1a42b7cc148.png", "assets/archive/2017-03-screenshot_5_en.png": "media-b999e1a13cb2e1c7d000.png", "assets/archive/2017-03-screenshot_5_tw.png": "media-00733bd16275fecc9d66.png", "assets/archive/2017-03-screenshot_add_accounts.png": "media-e6a5f6f8ca69276c7a90.png", "assets/archive/2017-03-screenshot_iphone-6_ios-10-2_03-09-2017_16-09-35-0091.png": "media-3480078592aa58c6fd61.png", "assets/archive/2017-03-screenshot_iphone-6_ios-10-2_03-09-2017_16-10-10-0101.png": "media-7575f22e36a5792664c0.png", "assets/archive/2017-03-screenshot_iphone-6_ios-10-2_03-09-2017_16-10-25-0101.png": "media-1d3ab1c2c31e7c149c2d.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_15-44-28-044.png": "media-9a2c10a7a820d658a588.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_15-47-26-047-e68bb7e8b29d.png": "media-5d3ea28476ee4921a9a6.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_15-53-37-053.png": "media-39d133e7cc1dcc3591fa.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_15-53-56-053-e68bb7e8b29d1.png": "media-fecb3f03c206005a13f7.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-00-26-000.png": "media-47177d7b9132f2f8e0f2.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-01-43-001.png": "media-8dc78602b09b91d4ceb5.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-04-26-004-e68bb7e8b29d.png": "media-f4c3d9464c42a7619b27.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-04-37-004-e68bb7e8b29d.png": "media-df24cfd78095916a7f1e.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-06-54-006-e68bb7e8b29d.png": "media-de65d54dc10d1499d7ca.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-06-54-006.png": "media-ed273b54d09c0c3a3637.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-08-30-008-e68bb7e8b29d.png": "media-0462798b2aec47b6a661.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-09-11-009-e68bb7e8b29d.png": "media-b9f7f839974db3ee5852.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-10-07-010.png": "media-eecf88015ccacff07498.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-10-27-010-e68bb7e8b29d.png": "media-4cf10e99fa6880a395fc.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-43-39-043-e68bb7e8b29d.png": "media-de6b58eb4bb722f87b2b.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_16-44-42-044-e68bb7e8b29d.png": "media-8a7b8191297fd80197b5.png", "assets/archive/2017-03-screenshot_iphone-7-plus_ios-10-2_03-03-2017_17-15-26-015-e68bb7e8b29d.png": "media-a42bb163cbd64adab71f.png", "assets/archive/2017-03-search_login_icon.png": "media-557b29006bc7e4fbc26d.png", "assets/archive/2017-03-share-en1.jpg": "media-de0032c9411d26d83475.jpg", "assets/archive/2017-03-share-tw1.jpg": "media-4d81332cc094f5bbeed6.jpg", "assets/archive/2017-04-img_2534.jpg": "media-5bd9a84a9c51ef1afb89.jpg", "assets/archive/2017-04-img_2535.jpg": "media-f2bd40463c1fed92865e.jpg", "assets/archive/2017-04-img_2536.jpg": "media-dd5a0a9687e94b3a0054.jpg", "assets/archive/2017-04-img_2537.jpg": "media-7341257de7f817f84944.jpg", "assets/archive/2017-04-img_2538.jpg": "media-0e4d3c44a6820b87ddf3.jpg", "assets/archive/2017-04-img_2539.jpg": "media-b8436be2beb6b4294e4a.jpg", "assets/archive/2017-04-img_2540.jpg": "media-0989a805fc4c6991cc9a.jpg", "assets/archive/2017-04-img_2541.jpg": "media-648430ef29f8d4a00a6d.jpg", "assets/archive/2017-04-img_2542.jpg": "media-ff4aef8c71591827c3ed.jpg", "assets/archive/2017-06-screenshot_1_tw.png": "media-1c72eacfe08eee1cd7f1.png", "assets/archive/2017-06-screenshot_2_tw.png": "media-ef81c7131928fdf47575.png", "assets/archive/2017-06-screenshot_3_tw.png": "media-35041af0bea56864dceb.png", "assets/archive/2017-06-screenshot_4_tw.png": "media-830bf56ef163710dddb2.png", "assets/archive/2017-06-screenshot_5_tw.png": "media-5d214914a9ce12cd14a2.png", "assets/archive/2017-06-shopperpro_appicon.png": "media-a2e9b8bc362c3cc34eb0.png", "assets/shopper-ads-qr.png": "media-da5c905ab2322dcf595d.png", "assets/shopper-guide-120/en/add-menu.jpg": "media-22bdfd271cde1bd4b26d.jpg", "assets/shopper-guide-120/en/barcode-crop.jpg": "media-4b39803423401c935df4.jpg", "assets/shopper-guide-120/en/barcode-name.jpg": "media-6e937776260732bb9f56.jpg", "assets/shopper-guide-120/en/barcode-results.jpg": "media-208aec6f6cc2375a5eb8.jpg", "assets/shopper-guide-120/en/edit.jpg": "media-df3a15f8b66ef9e19dd4.jpg", "assets/shopper-guide-120/en/history-details.jpg": "media-6959b8fc9fb8ef8dcf17.jpg", "assets/shopper-guide-120/en/history.jpg": "media-24fed31b151dbd2f5fea.jpg", "assets/shopper-guide-120/en/items.jpg": "media-c87a42817b4691139a2e.jpg", "assets/shopper-guide-120/en/languages.jpg": "media-c6c1475264fda0e9bf21.jpg", "assets/shopper-guide-120/en/list-create.jpg": "media-73e222e6b9e1c91900e3.jpg", "assets/shopper-guide-120/en/lists.jpg": "media-11ae6064bb8544d2f300.jpg", "assets/shopper-guide-120/en/manual.jpg": "media-81b237542e4b67d27012.jpg", "assets/shopper-guide-120/en/photo-source.jpg": "media-9ce1f482e17c9f381cf5.jpg", "assets/shopper-guide-120/en/prices.jpg": "media-1a4c813869d108485709.jpg", "assets/shopper-guide-120/en/purchased.jpg": "media-0e1bceb07f71ca798400.jpg", "assets/shopper-guide-120/en/reminders.jpg": "media-bbd5a307397e2598c87a.jpg", "assets/shopper-guide-120/en/settings.jpg": "media-c2c9da92f407c7d02007.jpg", "assets/shopper-guide-120/zh-Hans/add-menu.jpg": "media-3ca121792df43d443c9f.jpg", "assets/shopper-guide-120/zh-Hans/barcode-crop.jpg": "media-a05533c2d1161c354f34.jpg", "assets/shopper-guide-120/zh-Hans/barcode-name.jpg": "media-d77a8948426ee3e568f3.jpg", "assets/shopper-guide-120/zh-Hans/barcode-results.jpg": "media-c9f519a90ba17a3982fb.jpg", "assets/shopper-guide-120/zh-Hans/edit.jpg": "media-7b6f2e4ae6d6314a45e1.jpg", "assets/shopper-guide-120/zh-Hans/history-details.jpg": "media-a62339ec75e6cc9155b6.jpg", "assets/shopper-guide-120/zh-Hans/history.jpg": "media-5820d8c71c23abd79f6b.jpg", "assets/shopper-guide-120/zh-Hans/items.jpg": "media-3eb02b676bb4db19b420.jpg", "assets/shopper-guide-120/zh-Hans/languages.jpg": "media-7502ae65ac86ee8e5f39.jpg", "assets/shopper-guide-120/zh-Hans/list-create.jpg": "media-be730635452a9615811d.jpg", "assets/shopper-guide-120/zh-Hans/lists.jpg": "media-2a34ae9ee3ed0af0d985.jpg", "assets/shopper-guide-120/zh-Hans/manual.jpg": "media-5d99ec52b2024c4ffd1d.jpg", "assets/shopper-guide-120/zh-Hans/photo-source.jpg": "media-d479000647aee743accc.jpg", "assets/shopper-guide-120/zh-Hans/prices.jpg": "media-30fbfd1d9c0d6e4c0468.jpg", "assets/shopper-guide-120/zh-Hans/purchased.jpg": "media-27a62dffbb609ea9ca8a.jpg", "assets/shopper-guide-120/zh-Hans/reminders.jpg": "media-c328f85c1f5906232292.jpg", "assets/shopper-guide-120/zh-Hans/settings.jpg": "media-da49ac9d41ed6a5a8dd3.jpg", "assets/shopper-guide-120/zh-Hant/add-menu.jpg": "media-1fab690f4ba72d05da72.jpg", "assets/shopper-guide-120/zh-Hant/barcode-crop.jpg": "media-9b5ecaf7e08cbcf9571e.jpg", "assets/shopper-guide-120/zh-Hant/barcode-name.jpg": "media-cddf672c658b612e78f9.jpg", "assets/shopper-guide-120/zh-Hant/barcode-results.jpg": "media-df4179f2c1aa308d960f.jpg", "assets/shopper-guide-120/zh-Hant/edit.jpg": "media-b1261325c7146fccb4b8.jpg", "assets/shopper-guide-120/zh-Hant/history-details.jpg": "media-6ca6c87b36d8ed60d472.jpg", "assets/shopper-guide-120/zh-Hant/history.jpg": "media-70c6e52773117e32b1d9.jpg", "assets/shopper-guide-120/zh-Hant/items.jpg": "media-b265a29786a5b901b90f.jpg", "assets/shopper-guide-120/zh-Hant/languages.jpg": "media-91b8bf77cefd517108a6.jpg", "assets/shopper-guide-120/zh-Hant/list-create.jpg": "media-09c904a69ee311e293bf.jpg", "assets/shopper-guide-120/zh-Hant/lists.jpg": "media-38079cce9ea40c61c133.jpg", "assets/shopper-guide-120/zh-Hant/manual.jpg": "media-6edc6a74b4f8a6fb9c3b.jpg", "assets/shopper-guide-120/zh-Hant/photo-source.jpg": "media-97d757a2a6ea098ddefa.jpg", "assets/shopper-guide-120/zh-Hant/prices.jpg": "media-ca2a3a572a33d3514d52.jpg", "assets/shopper-guide-120/zh-Hant/purchased.jpg": "media-f4001e2a586ffd2eee1e.jpg", "assets/shopper-guide-120/zh-Hant/reminders.jpg": "media-250c0caf782ee1314663.jpg", "assets/shopper-guide-120/zh-Hant/settings.jpg": "media-df68930c161fe8885824.jpg", "assets/shopper-paid-qr.png": "media-57f7f310c754612e3ede.png", "assets/shopperpro-ads-icon.png": "media-f410add08db494587c7d.png", "assets/shopperpro-paid-icon.jpg": "media-747e752254716af10296.jpg", "assets/slaiac-logo.png": "media-784af194d831f4fbdb25.png"};
 function publicAssetUrl(path) { return PUBLIC_ASSET_URLS[path] || path; }
 
 // Public material reorganized from the 2017–2019 WordPress site.
@@ -2995,7 +2996,7 @@ const SHOPPER_GUIDE = {
     title: "ShopperPro 操作教學",
     intro: "從建立第一張清單，到掃描商品、記錄花費與設定補貨提醒，讓每次購物都有條理。",
     card: "建清單、掃碼選圖、手動新增、購買標記、提醒與 iCloud 備份，一步一步開始使用。",
-    scope: "以 1.2.0 操作流程整理，適用於 ShopperPro Ads；ShopperPro 買斷版 1.2.0 目前送審中。舊版介面與掃碼流程可能不同。",
+    scope: "以 1.2.0 共用操作流程整理，適用於已上架的 ShopperPro 買斷版與 ShopperPro Ads。截圖以廣告版示範，買斷版不含廣告；舊版介面與掃碼流程可能不同。",
     contents: "選擇你想了解的操作",
     step: "操作",
     note: "使用提示",
@@ -3018,7 +3019,7 @@ const SHOPPER_GUIDE = {
     title: "ShopperPro 使用教程",
     intro: "从建立第一张清单，到扫描商品、记录花费与设置补货提醒，让每次购物都有条理。",
     card: "建清单、扫码选图、手动添加、购买标记、提醒与 iCloud 备份，一步一步开始使用。",
-    scope: "按 1.2.0 操作流程整理，适用于 ShopperPro Ads；ShopperPro 买断版 1.2.0 目前审核中。旧版界面与扫码流程可能不同。",
+    scope: "按 1.2.0 共用操作流程整理，适用于已上架的 ShopperPro 买断版与 ShopperPro Ads。截图以广告版示范，买断版不含广告；旧版界面与扫码流程可能不同。",
     contents: "选择你想了解的操作",
     step: "操作",
     note: "使用提示",
@@ -3041,7 +3042,7 @@ const SHOPPER_GUIDE = {
     title: "ShopperPro guide",
     intro: "Create your first list, scan products, track spending and set restocking reminders—one step at a time.",
     card: "Learn to create lists, scan and choose images, add items, mark purchases, set reminders and back up to iCloud.",
-    scope: "Based on the 1.2.0 workflow in ShopperPro Ads. ShopperPro paid edition 1.2.0 is currently under review. Older versions may have different screens and scanning steps.",
+    scope: "Covers the shared 1.2.0 workflows in the available ShopperPro paid and ad-supported editions. Screenshots show ShopperPro Ads; the paid edition has no ads. Older versions may have different screens and scanning steps.",
     contents: "Jump to an operation",
     step: "Step",
     note: "Good to know",
@@ -3077,7 +3078,7 @@ const SITE_COPY = {
     ],
     futureTitle: "從手機到桌面，探索更多可能。",
     futureText: "AccountBox 與 ShopperPro 是我們對日常需求的兩種回應。另有兩個面向 Mac 與 Windows 的新方向正在醞釀；更多細節，會在準備好時揭曉。",
-    downloadTitle: "把好工具，帶進日常。", downloadApp: "在 App Store 查看", scan: "掃描下載", paidStatus: "ShopperPro 買斷版 1.2.0：送審中",
+    downloadTitle: "把好工具，帶進日常。", downloadApp: "在 App Store 查看", scan: "掃描下載", paidStatus: "ShopperPro 買斷版 1.2.0：已上架",
     enlarge: "放大截圖", close: "關閉截圖", imageHint: "點圖放大", accountScreen: "AccountBox 原站功能截圖", screenshot: "操作畫面", searchIcon: "搜尋按鈕", confirmIcon: "確認按鈕",
     zoomIn: "放大圖片", zoomOut: "縮小圖片", fitImage: "符合視窗", zoomControls: "圖片檢視控制", zoomLevel: "相對縮圖的倍率", panImage: "圖片檢視區，可捲動查看",
     history: "歷史更新", accountNotice: "保留原站內容與功能截圖；畫面及部分操作可能與目前版本不同，請以 App 內實際介面為準。",
@@ -3096,7 +3097,7 @@ const SITE_COPY = {
     ],
     futureTitle: "从手机到桌面，探索更多可能。",
     futureText: "AccountBox 与 ShopperPro 是我们对日常需求的两种回应。另有两个面向 Mac 与 Windows 的新方向正在酝酿；更多细节，会在准备好时揭晓。",
-    downloadTitle: "把好工具，带进日常。", downloadApp: "在 App Store 查看", scan: "扫码下载", paidStatus: "ShopperPro 买断版 1.2.0：审核中",
+    downloadTitle: "把好工具，带进日常。", downloadApp: "在 App Store 查看", scan: "扫码下载", paidStatus: "ShopperPro 买断版 1.2.0：已上架",
     enlarge: "放大截图", close: "关闭截图", imageHint: "点图放大", accountScreen: "AccountBox 原站功能截图", screenshot: "操作画面", searchIcon: "搜索按钮", confirmIcon: "确认按钮",
     zoomIn: "放大图片", zoomOut: "缩小图片", fitImage: "适合窗口", zoomControls: "图片查看控制", zoomLevel: "相对缩略图的倍率", panImage: "图片查看区，可滚动查看",
     history: "历史更新", accountNotice: "保留原站内容与功能截图；画面及部分操作可能与当前版本不同，请以 App 内实际界面为准。",
@@ -3115,7 +3116,7 @@ const SITE_COPY = {
     ],
     futureTitle: "From mobile to desktop, exploring what comes next.",
     futureText: "AccountBox and ShopperPro are two ways we address everyday needs. Two new directions for Mac and Windows are taking shape. We will reveal more when they are ready.",
-    downloadTitle: "Bring useful tools into your day.", downloadApp: "View on the App Store", scan: "Scan to download", paidStatus: "ShopperPro paid edition 1.2.0: under review",
+    downloadTitle: "Bring useful tools into your day.", downloadApp: "View on the App Store", scan: "Scan to download", paidStatus: "ShopperPro paid edition 1.2.0: available",
     enlarge: "Enlarge screenshot", close: "Close screenshot", imageHint: "Tap to enlarge", accountScreen: "Original AccountBox screen", screenshot: "App screen", searchIcon: "Search button", confirmIcon: "Confirmation button",
     zoomIn: "Zoom in", zoomOut: "Zoom out", fitImage: "Fit to screen", zoomControls: "Image viewing controls", zoomLevel: "Scale relative to thumbnail", panImage: "Image viewing area, scroll to explore",
     history: "Earlier updates", accountNotice: "The original guide and screens are preserved. Some screens and steps may differ from the current app; follow the interface in your installed version.",
@@ -3574,9 +3575,10 @@ function studioFooterView(locale, c) {
   const m = MIGRATION_COPY[locale];
   const apps = [
     {name:"AccountBox",icon:"assets/accountbox-icon.png",qr:"assets/accountbox-qr.png",href:STORE_LINKS.accountbox},
+    {name:"ShopperPro",label:c.paidTitle,icon:"assets/shopperpro-paid-icon.jpg",qr:"assets/shopper-paid-qr.png",href:STORE_LINKS.shopperPaid},
     {name:"ShopperPro Ads",icon:"assets/shopperpro-ads-icon.png",qr:"assets/shopper-ads-qr.png",href:STORE_LINKS.shopperAds}
   ];
-  return `<section class="footer-downloads"><div class="container"><span class="eyebrow">TAKE THE TOOLS WITH YOU</span><h2>${text.downloadTitle}</h2><div class="download-units">${apps.map(app => `<div class="download-product"><a class="app-download-unit" href="${app.href}" target="_blank" rel="noopener noreferrer" aria-label="${text.downloadApp} ${app.name}"><img decoding="async" class="download-app-icon" src="${publicAssetUrl(app.icon)}" alt="" loading="lazy" /><h3>${app.name}</h3><img decoding="async" class="download-qr" src="${publicAssetUrl(app.qr)}" alt="${app.name} App Store QR Code" loading="lazy" /><img decoding="async" class="download-store-badge" src="${publicAssetUrl("assets/app-store-badge.png")}" alt="Download on the App Store" loading="lazy" /></a>${app.name === "ShopperPro Ads" ? `<p class="download-edition-status">${text.paidStatus}</p>` : ""}</div>`).join("")}</div><p class="icon-credit">Icon made by <a href="https://www.freepik.com/" target="_blank" rel="noopener noreferrer">Freepik</a> from <a href="https://www.flaticon.com/" target="_blank" rel="noopener noreferrer">www.Flaticon.com</a></p></div></section><div class="footer-inner"><div class="footer-brand">SLAIAC STUDIO<small>${c.footerText}</small></div><div class="footer-links"><a href="${url(locale,"products")}">${c.nav.products}</a><a href="${url(locale,"updates")}">${c.nav.updates}</a><a href="${url(locale,"guides")}">${c.nav.guides}</a><a href="${url(locale,"privacy")}">${m.privacy}</a><a href="${url(locale,"about")}">${c.nav.about}</a><a href="${url(locale,"contact")}">${m.contact}</a></div></div>`;
+  return `<section class="footer-downloads"><div class="container"><span class="eyebrow">TAKE THE TOOLS WITH YOU</span><h2>${text.downloadTitle}</h2><div class="download-units">${apps.map(app => `<div class="download-product"><a class="app-download-unit" href="${app.href}" target="_blank" rel="noopener noreferrer" aria-label="${text.downloadApp} ${app.label || app.name}"><img decoding="async" class="download-app-icon" src="${publicAssetUrl(app.icon)}" alt="" loading="lazy" /><h3>${app.name}</h3><img decoding="async" class="download-qr" src="${publicAssetUrl(app.qr)}" alt="${app.label || app.name} App Store QR Code" loading="lazy" /><img decoding="async" class="download-store-badge" src="${publicAssetUrl("assets/app-store-badge.png")}" alt="Download on the App Store" loading="lazy" /></a>${app.name === "ShopperPro" ? `<p class="download-edition-status">${text.paidStatus}</p>` : ""}</div>`).join("")}</div><p class="icon-credit">Icon made by <a href="https://www.freepik.com/" target="_blank" rel="noopener noreferrer">Freepik</a> from <a href="https://www.flaticon.com/" target="_blank" rel="noopener noreferrer">www.Flaticon.com</a></p></div></section><div class="footer-inner"><div class="footer-brand">SLAIAC STUDIO<small>${c.footerText}</small></div><div class="footer-links"><a href="${url(locale,"products")}">${c.nav.products}</a><a href="${url(locale,"updates")}">${c.nav.updates}</a><a href="${url(locale,"guides")}">${c.nav.guides}</a><a href="${url(locale,"privacy")}">${m.privacy}</a><a href="${url(locale,"about")}">${c.nav.about}</a><a href="${url(locale,"contact")}">${m.contact}</a></div></div>`;
 }
 
 function accountReleaseVideo(locale) {
@@ -3832,7 +3834,7 @@ const CONTENT = {
     accountStatus: "iPhone / iPad · 已上架",
     shopperName: "ShopperPro",
     shopperShort: "記下採買清單，補齊商品資訊。",
-    shopperStatus: "廣告版已上架",
+    shopperStatus: "買斷版與廣告版皆已上架",
     teaser03: "PROJECT 03",
     teaser03Short: "工作，能不能跨越裝置界線？",
     teaser03Hint: "鍵盤、滑鼠與檔案之間，也許可以少一點距離。",
@@ -3874,9 +3876,9 @@ const CONTENT = {
     adsLead: "免費、含廣告的版本。1.2.0 已上架，包含條碼、圖片與穩定性更新。",
     adsBadge: "1.2.0 已上架",
     paidTitle: "ShopperPro 買斷版",
-    paidLead: "買斷版現有版本可在 App Store 查看；1.2.0 正在 Apple 審核。",
-    paidBadge: "1.2.0 審核中",
-    paidNotice: "買斷版 1.2.0 正由 Apple 審核。圖示與上架公告將於審核通過後更新。",
+    paidLead: "一次付費、不含廣告的版本。1.2.0 已上架，包含商品圖片、條碼操作與穩定性更新。",
+    paidBadge: "1.2.0 已上架",
+    paidNotice: "買斷版與廣告版為不同的 App。請依版本名稱與對應的 App Store 頁面下載。",
     shopperFeatures: [
       { icon: "scan", title: "條碼與圖片", text: "掃描條碼後瀏覽圖片結果，選擇、擷取並裁切商品圖片。" },
       { icon: "camera", title: "手動加入照片", text: "新增或編輯商品時，從相機或相簿加入圖片。" },
@@ -3895,7 +3897,7 @@ const CONTENT = {
     guideFaqTitle: "常見問題",
     faqs: [
       { q: "如何切換網站語言？", a: "使用頁首的語言選單選擇繁體中文、簡體中文或 English。切換時會保留你所在的頁面；下次開啟也會記住選擇。" },
-      { q: "ShopperPro 兩個版本目前有何差別？", a: "廣告版 1.2.0 已上架；買斷版 1.2.0 仍在 Apple 審核。產品頁可切換版本，；買斷版將在審核通過後更新公告與圖示。" },
+      { q: "ShopperPro 兩個版本目前有何差別？", a: "買斷版與廣告版 1.2.0 皆已上架。買斷版一次付費、不含廣告；ShopperPro Ads 可免費下載，含廣告。兩者共用購物清單、條碼選圖、購買提醒與 iCloud 備份等操作，產品頁可切換版本並前往對應的 App Store 頁面。" },
       { q: "在哪裡查看 AccountBox 的歷史更新？", a: "前往「更新」頁，選擇 1.3.0、1.3.1 或目前的 1.3.2。每個版本都有獨立頁面，切換語言時會留在相同版本。" },
       { q: "兩款未公開產品何時推出？", a: "目前仍在開發中，網站暫不公開名稱或上市日期。正式消息會放在更新頁面。" },
     ],
@@ -3989,7 +3991,7 @@ const CONTENT = {
     accountStatus: "iPhone / iPad · 已上架",
     shopperName: "ShopperPro",
     shopperShort: "记下采购清单，补齐商品信息。",
-    shopperStatus: "广告版已上架",
+    shopperStatus: "买断版与广告版均已上架",
     teaser03: "PROJECT 03",
     teaser03Short: "工作，能不能跨越设备界限？",
     teaser03Hint: "键盘、鼠标与文件之间，也许可以少一点距离。",
@@ -4031,9 +4033,9 @@ const CONTENT = {
     adsLead: "免费、含广告的版本。1.2.0 已上架，包含条码、图片与稳定性更新。",
     adsBadge: "1.2.0 已上架",
     paidTitle: "ShopperPro 买断版",
-    paidLead: "买断版现有版本可在 App Store 查看；1.2.0 正在 Apple 审核。",
-    paidBadge: "1.2.0 审核中",
-    paidNotice: "买断版 1.2.0 正由 Apple 审核。图标与上架公告将在审核通过后更新。",
+    paidLead: "一次付费、不含广告的版本。1.2.0 已上架，包含商品图片、条码操作与稳定性更新。",
+    paidBadge: "1.2.0 已上架",
+    paidNotice: "买断版与广告版是不同的 App。请按版本名称与对应的 App Store 页面下载。",
     shopperFeatures: [
       { icon: "scan", title: "条码与图片", text: "扫描条码后浏览图片结果，选择、截取并裁剪商品图片。" },
       { icon: "camera", title: "手动加入照片", text: "新增或编辑商品时，从相机或相册加入图片。" },
@@ -4052,7 +4054,7 @@ const CONTENT = {
     guideFaqTitle: "常见问题",
     faqs: [
       { q: "如何切换网站语言？", a: "使用页首的语言菜单选择繁体中文、简体中文或 English。切换时会保留当前页面；下次打开也会记住选择。" },
-      { q: "ShopperPro 两个版本目前有何区别？", a: "广告版 1.2.0 已上架；买断版 1.2.0 仍在 Apple 审核。产品页可切换版本，；买断版将在审核通过后更新公告与图标。" },
+      { q: "ShopperPro 两个版本目前有何区别？", a: "买断版与广告版 1.2.0 均已上架。买断版一次付费、不含广告；ShopperPro Ads 可免费下载，含广告。两者共用购物清单、条码选图、购买提醒与 iCloud 备份等操作，产品页可切换版本并前往对应的 App Store 页面。" },
       { q: "在哪里查看 AccountBox 的历史更新？", a: "前往“更新”页，选择 1.3.0、1.3.1 或当前的 1.3.2。每个版本都有独立页面，切换语言时会留在相同版本。" },
       { q: "两款未公开产品何时推出？", a: "目前仍在开发中，网站暂不公开名称或上市日期。正式消息会放在更新页面。" },
     ],
@@ -4146,7 +4148,7 @@ const CONTENT = {
     accountStatus: "iPhone / iPad · Available",
     shopperName: "ShopperPro",
     shopperShort: "Plan your shopping and fill in item details.",
-    shopperStatus: "Ad-supported app available",
+    shopperStatus: "Paid and ad-supported editions available",
     teaser03: "PROJECT 03",
     teaser03Short: "What if work could cross device boundaries?",
     teaser03Hint: "Keyboard, pointer, and files may soon feel a little closer together.",
@@ -4188,9 +4190,9 @@ const CONTENT = {
     adsLead: "The free, ad-supported edition. Version 1.2.0 is available with barcode, image, and stability updates.",
     adsBadge: "1.2.0 available",
     paidTitle: "ShopperPro paid edition",
-    paidLead: "The current paid edition is on the App Store; version 1.2.0 is under Apple review.",
-    paidBadge: "1.2.0 under review",
-    paidNotice: "Paid version 1.2.0 is under Apple review. We will update its icon and release notice after approval.",
+    paidLead: "A one-time purchase with no ads. Version 1.2.0 is available, with improvements to item images, barcode flow and stability.",
+    paidBadge: "1.2.0 available",
+    paidNotice: "The paid and ad-supported editions are separate apps. Check the edition name and its App Store page before downloading.",
     shopperFeatures: [
       { icon: "scan", title: "Barcode and images", text: "Browse image results after scanning, then capture and crop an item image." },
       { icon: "camera", title: "Add your own photo", text: "Take a photo or choose one from the library when adding or editing an item." },
@@ -4209,7 +4211,7 @@ const CONTENT = {
     guideFaqTitle: "Common questions",
     faqs: [
       { q: "How do I change the website language?", a: "Use the language selector in the header to choose Traditional Chinese, Simplified Chinese, or English. Your current page is preserved, and the selection is remembered next time." },
-      { q: "What is the status of the two ShopperPro editions?", a: "Ad-supported version 1.2.0 is available. Paid version 1.2.0 is still under Apple review. Switch editions on the product page; its icon and release notice will be updated after approval." },
+      { q: "How do the two ShopperPro editions differ?", a: "Both editions are available in version 1.2.0. ShopperPro is a one-time purchase with no ads; ShopperPro Ads is free to download and includes ads. They share shopping lists, barcode image selection, purchase reminders and iCloud backup workflows. Switch editions on the product page to open the correct App Store listing." },
       { q: "Where can I find older AccountBox updates?", a: "Open Updates and choose 1.3.0, 1.3.1, or the current 1.3.2. Each release has its own page, and switching language keeps you on the same release." },
       { q: "When will the two unannounced products launch?", a: "They are still in development. The site does not publish their names or dates yet. Official news will appear in Updates." },
     ],
@@ -4280,7 +4282,85 @@ const CONTENT = {
   },
 };
 
-const ARTICLE_ORDER = ["accountbox-132", "shopper-ads-120", "accountbox-131", "accountbox-130"];
+const PAID_RELEASE_COPY = {
+  "zh-Hant": {
+    badge: "已上架 · 買斷版",
+    title: "ShopperPro 買斷版 1.2.0 正式上架",
+    excerpt: "一次付費、不含廣告；商品圖片、條碼操作與穩定性更新已推出。",
+    lead: "ShopperPro 買斷版 1.2.0 已於 2026 年 10 月 9 日上架。以一次付費、不含廣告的方式，整理採買清單、補齊商品資料，並享有本次操作與穩定性改善。",
+  },
+  "zh-Hans": {
+    badge: "已上架 · 买断版",
+    title: "ShopperPro 买断版 1.2.0 正式上架",
+    excerpt: "一次付费、不含广告；商品图片、条码操作与稳定性更新已推出。",
+    lead: "ShopperPro 买断版 1.2.0 已于 2026 年 10 月 9 日上架。以一次付费、不含广告的方式，整理购物清单、补齐商品信息，并享有本次操作与稳定性改进。",
+  },
+  en: {
+    badge: "Available · One-time purchase",
+    title: "ShopperPro paid edition 1.2.0 is now available",
+    excerpt: "A one-time purchase with no ads, improved item images, barcode flow and stability.",
+    lead: "ShopperPro paid edition 1.2.0 was released on October 9, 2026. Organize shopping lists and add product details with a one-time purchase and no ads, including the latest workflow and stability improvements.",
+  },
+};
+for (const locale of LOCALES) {
+  CONTENT[locale].articles["shopper-paid-120"] = {
+    product: "ShopperPro", version: "1.2.0", date: "2026-10-09",
+    ...PAID_RELEASE_COPY[locale],
+    // The shared release improvements apply to both apps; ad loading is Ads only.
+    bullets: CONTENT[locale].articles["shopper-ads-120"].bullets.filter(bullet => !/Google Mobile Ads/.test(bullet)),
+  };
+}
+const ACCOUNTBOX_PREVIEW_COPY = {
+  "zh-Hant": {
+    version: "下一版預告", badge: "更新預告",
+    title: "AccountBox 更新預告：內建瀏覽器修正與全新 App 圖示",
+    excerpt: "熟悉的密碼箱，準備迎來新的樣貌；本次調整聚焦內建瀏覽器與 App 圖示。",
+    lead: "AccountBox 正在準備下一次更新。這次從日常使用的細節出發，修正 App 內建瀏覽器，並換上更簡潔的保險箱圖示。先與大家分享這兩項更新方向，正式推出時再帶來完整公告。",
+    sectionTitle: "這次先透露的兩項更新",
+    notice: "目前為下一版預告，尚未進版上架。正式版號與上架日期尚未公布，後續將依更新安排另行公告。",
+    bullets: [
+      "內建瀏覽器修正：調整登入網站瀏覽、自動填入及關閉瀏覽器時的處理，持續整理使用細節。",
+      "全新 App 圖示：以俐落的保險箱輪廓、藍色光彩與簡潔符號，延續 AccountBox 的密碼箱意象；新版推出時同步更換。",
+    ],
+    previewTitle: "搶先看看新的 App 圖示",
+    previewCaption: "AccountBox 下一版圖示預覽。此圖示已套用於開發中的 App，預計隨後續版本更新推出。",
+  },
+  "zh-Hans": {
+    version: "下一版预告", badge: "更新预告",
+    title: "AccountBox 更新预告：内置浏览器修正与全新 App 图标",
+    excerpt: "熟悉的密码箱，准备迎来新的模样；本次调整聚焦内置浏览器与 App 图标。",
+    lead: "AccountBox 正在准备下一次更新。这次从日常使用的细节出发，修正 App 内置浏览器，并换上更简洁的保险箱图标。先与大家分享这两项更新方向，正式推出时再带来完整公告。",
+    sectionTitle: "这次先透露的两项更新",
+    notice: "目前为下一版预告，尚未发布新版本。正式版本号与上架日期尚未公布，后续将按更新安排另行公告。",
+    bullets: [
+      "内置浏览器修正：调整登录网站浏览、自动填入及关闭浏览器时的处理，持续完善使用细节。",
+      "全新 App 图标：以利落的保险箱轮廓、蓝色光彩与简洁符号，延续 AccountBox 的密码箱意象；新版推出时同步更换。",
+    ],
+    previewTitle: "抢先看看新的 App 图标",
+    previewCaption: "AccountBox 下一版图标预览。此图标已应用于开发中的 App，预计随后续版本更新推出。",
+  },
+  en: {
+    version: "Next release preview", badge: "Update preview",
+    title: "AccountBox update preview: browser fixes and a new app icon",
+    excerpt: "A fresh look for a familiar password vault, with this update focused on the built-in browser and app icon.",
+    lead: "We are preparing the next AccountBox update, with two focused changes: fixes to the built-in browser and a simpler vault icon. Here is a first look at what is taking shape. Full details will follow when the update is released.",
+    sectionTitle: "A first look at two planned changes",
+    notice: "This is a preview of the next update, which has not been released. The version number and App Store release date have not been announced. We will share them when the release is scheduled.",
+    bullets: [
+      "Built-in browser fixes: adjustments to login website browsing, autofill and browser closing behavior, with attention to everyday details.",
+      "A new app icon: a clean vault outline, blue glow and simple symbols carry forward AccountBox's password vault identity. The icon will change with the future app update.",
+    ],
+    previewTitle: "Meet the upcoming app icon",
+    previewCaption: "A preview of the next AccountBox icon. It is already used in the development app and is planned for a future release.",
+  },
+};
+for (const locale of LOCALES) {
+  CONTENT[locale].articles["accountbox-next"] = {
+    product: "AccountBox", date: "2026-10-09", previewIcon: "assets/accountbox-next-icon.jpg",
+    ...ACCOUNTBOX_PREVIEW_COPY[locale],
+  };
+}
+const ARTICLE_ORDER = ["accountbox-next", "shopper-paid-120", "accountbox-132", "shopper-ads-120", "accountbox-131", "accountbox-130"];
 const state = { edition: "ads", menuOpen: false, lastRoute: null };
 let backToTopController;
 
@@ -4449,14 +4529,14 @@ function editionMarkup(locale, c) {
   const badge = ads ? c.adsBadge : c.paidBadge;
   const storeUrl = ads ? STORE_LINKS.shopperAds : STORE_LINKS.shopperPaid;
   return `<div class="edition-tabs" role="tablist" aria-label="${c.chooseEdition}"><button type="button" class="edition-tab" role="tab" data-edition="ads" aria-selected="${ads}" aria-controls="edition-panel">${c.adsTab}</button><button type="button" class="edition-tab" role="tab" data-edition="paid" aria-selected="${!ads}" aria-controls="edition-panel">${c.paidTab}</button></div>
-    <div class="edition-panel" id="edition-panel" role="tabpanel">${ads ? `<img decoding="async" src="${publicAssetUrl("assets/shopperpro-ads-icon.png")}" alt="ShopperPro Ads app icon" width="1024" height="1024" loading="lazy"/>` : '<div class="edition-placeholder" aria-hidden="true">SP</div>'}<div><h3>${title}</h3><p>${lead}</p><div class="detail-tags"><span class="detail-tag">${badge}</span><span class="detail-tag">iPhone</span></div>${externalLink(storeUrl, c.appStore, "button-secondary")}</div></div>
+    <div class="edition-panel" id="edition-panel" role="tabpanel">${ads ? `<img decoding="async" src="${publicAssetUrl("assets/shopperpro-ads-icon.png")}" alt="ShopperPro Ads app icon" width="1024" height="1024" loading="lazy"/>` : `<img decoding="async" src="${publicAssetUrl("assets/shopperpro-paid-icon.jpg")}" alt="ShopperPro app icon" width="512" height="512" loading="lazy"/>`}<div><h3>${title}</h3><p>${lead}</p><div class="detail-tags"><span class="detail-tag">${badge}</span><span class="detail-tag">iPhone</span></div>${externalLink(storeUrl, c.appStore, "button-secondary")}</div></div>
     ${!ads ? `<div class="status-note">${icon("info")}<span>${c.paidNotice}</span></div>` : ""}`;
 }
 
 function shopperView(locale, c) {
   const m = MIGRATION_COPY[locale];
   const guide = SHOPPER_GUIDE[locale];
-  return `<section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="${url(locale)}">${c.nav.home}</a>${icon("chevron")}<a href="${url(locale, "products")}">${c.nav.products}</a>${icon("chevron")}<span>ShopperPro</span></div><div class="detail-hero"><div><span class="eyebrow">${c.shopperEyebrow}</span><h1>${c.shopperTitle}</h1><p>${c.shopperLead}</p><div class="detail-tags"><span class="detail-tag">iPhone</span><span class="detail-tag">${c.shopperStatus}</span></div><div class="detail-actions"><a class="button-secondary" href="${url(locale, "guides/shopperpro")}">${m.viewGuide} ${icon("arrowRight")}</a></div></div><img decoding="async" class="app-icon-lg" loading="eager" fetchpriority="high" width="1024" height="1024" src="${publicAssetUrl("assets/shopperpro-ads-icon.png")}" alt="ShopperPro Ads app icon" /></div></div></section><section class="container section"><div class="section-top"><div><span class="eyebrow">${c.chooseEdition}</span><h2 class="section-title">ShopperPro</h2></div></div><div id="edition-area">${editionMarkup(locale, c)}</div></section><div class="section-divider"></div>${featureSection(c, c.shopperFeatures, c.shopperFeatureTitle)}<div class="section-divider"></div><section class="container section"><div class="section-top"><div><span class="eyebrow">${c.updatesEyebrow}</span><h2 class="section-title">${c.updateTitle}</h2></div></div><div class="update-list">${updateCard(locale, c, "shopper-ads-120")}</div><div class="resource-links"><a href="${url(locale, "guides/shopperpro")}">${guide.title} ${icon("arrowRight")}</a><a href="${url(locale, "privacy/shopperpro")}">${m.policyShopper} ${icon("arrowRight")}</a></div></section>`;
+  return `<section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="${url(locale)}">${c.nav.home}</a>${icon("chevron")}<a href="${url(locale, "products")}">${c.nav.products}</a>${icon("chevron")}<span>ShopperPro</span></div><div class="detail-hero"><div><span class="eyebrow">${c.shopperEyebrow}</span><h1>${c.shopperTitle}</h1><p>${c.shopperLead}</p><div class="detail-tags"><span class="detail-tag">iPhone</span><span class="detail-tag">${c.shopperStatus}</span></div><div class="detail-actions"><a class="button-secondary" href="${url(locale, "guides/shopperpro")}">${m.viewGuide} ${icon("arrowRight")}</a></div></div><img decoding="async" class="app-icon-lg" loading="eager" fetchpriority="high" width="1024" height="1024" src="${publicAssetUrl("assets/shopperpro-ads-icon.png")}" alt="ShopperPro Ads app icon" /></div></div></section><section class="container section"><div class="section-top"><div><span class="eyebrow">${c.chooseEdition}</span><h2 class="section-title">ShopperPro</h2></div></div><div id="edition-area">${editionMarkup(locale, c)}</div></section><div class="section-divider"></div>${featureSection(c, c.shopperFeatures, c.shopperFeatureTitle)}<div class="section-divider"></div><section class="container section"><div class="section-top"><div><span class="eyebrow">${c.updatesEyebrow}</span><h2 class="section-title">${c.updateTitle}</h2></div></div><div class="update-list">${["shopper-paid-120", "shopper-ads-120"].map(id => updateCard(locale, c, id)).join("")}</div><div class="resource-links"><a href="${url(locale, "guides/shopperpro")}">${guide.title} ${icon("arrowRight")}</a><a href="${url(locale, "privacy/shopperpro")}">${m.policyShopper} ${icon("arrowRight")}</a></div></section>`;
 }
 
 function updatesView(locale, c) {
@@ -4468,7 +4548,7 @@ function articleView(locale, c, id) {
   const item = c.articles[id];
   if (!item) return legacyArticleView(locale, c, id);
   const productRoute = id.startsWith("accountbox") ? "products/accountbox" : "products/shopperpro";
-  return `${pageHero(locale, c, `${item.product.toUpperCase()} · ${item.version}`, item.title, item.excerpt, [[c.nav.updates, "updates"], [item.version, null]])}<article class="container article-body"><p class="article-lead">${item.lead}</p><h2>${c.releaseLabel}</h2><ul>${item.bullets.map(bullet => `<li>${bullet}</li>`).join("")}</ul>${id === "accountbox-132" ? accountReleaseVideo(locale) : ""}<div class="article-foot"><a class="button-secondary" href="${url(locale, "updates")}">${c.returnUpdates} ${icon("arrowRight")}</a><a class="button-quiet" href="${url(locale, productRoute)}">${c.returnProduct} ${icon("arrowUpRight")}</a></div></article>`;
+  return `${pageHero(locale, c, `${item.product.toUpperCase()} · ${item.version}`, item.title, item.excerpt, [[c.nav.updates, "updates"], [item.version, null]])}<article class="container article-body">${item.date ? `<p class="article-meta">${MIGRATION_COPY[locale].published}: <time datetime="${item.date}">${item.date}</time></p>` : ""}${item.notice ? `<p class="archive-notice">${item.notice}</p>` : ""}<p class="article-lead">${item.lead}</p><h2>${item.sectionTitle || c.releaseLabel}</h2><ul>${item.bullets.map(bullet => `<li>${bullet}</li>`).join("")}</ul>${item.previewIcon ? `<section class="release-video"><h2>${item.previewTitle}</h2><figure><img decoding="async" src="${publicAssetUrl(item.previewIcon)}" width="240" height="240" style="border-radius:24px" alt="${item.previewTitle}" loading="lazy"/><figcaption>${item.previewCaption}</figcaption></figure></section>` : ""}${id === "accountbox-132" ? accountReleaseVideo(locale) : ""}<div class="article-foot">${id === "shopper-paid-120" ? externalLink(STORE_LINKS.shopperPaid, c.appStore, "button-primary") : ""}<a class="button-secondary" href="${url(locale, "updates")}">${c.returnUpdates} ${icon("arrowRight")}</a><a class="button-quiet" href="${url(locale, productRoute)}">${c.returnProduct} ${icon("arrowUpRight")}</a></div></article>`;
 }
 
 function legacyArticleView(locale, c, id) {
