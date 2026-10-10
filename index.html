@@ -4616,7 +4616,12 @@ function accountGuideView(locale, c) {
 
 function privacyView(locale, c) {
   const m = MIGRATION_COPY[locale];
-  return `${pageHero(locale, c, "PRIVACY ARCHIVE", m.policyTitle, m.policyIntro)}<section class="container section"><p class="archive-notice">${LEGACY_POLICIES[locale].notice}</p><div class="policy-grid"><a class="guide-entry" href="${url(locale, "privacy/accountbox")}"><span class="eyebrow">2017-03-05 · ACCOUNTBOX</span><h2>${m.policyAccount}</h2><span class="inline-link">${m.viewGuide} ${icon("arrowRight")}</span></a><a class="guide-entry" href="${url(locale, "privacy/shopperpro")}"><span class="eyebrow">2019-01-31 · SHOPPERPRO</span><h2>${m.policyShopper}</h2><span class="inline-link">${m.viewGuide} ${icon("arrowRight")}</span></a></div></section>`;
+  const copy = {
+    "zh-Hant": ["隱私政策", "查看各產品的資料處理說明。舊版政策保留原始日期，供歷史參考。", "MosaBingo Android 隱私政策", "本機遊戲資料、區域連線、AdMob 廣告與隱私選擇。", "查看隱私政策"],
+    "zh-Hans": ["隐私政策", "查看各产品的数据处理说明。旧版政策保留原始日期，供历史参考。", "MosaBingo Android 隐私政策", "本地游戏数据、局域网连接、AdMob 广告与隐私选择。", "查看隐私政策"],
+    "en": ["Privacy policies", "Read how each product handles data. Older policies retain their original dates for historical reference.", "MosaBingo Android Privacy Policy", "Local game data, nearby multiplayer, AdMob advertising, and privacy choices.", "Read privacy policy"],
+  }[locale];
+  return `${pageHero(locale, c, "PRIVACY", copy[0], copy[1])}<section class="container section"><div class="policy-grid"><a class="guide-entry" href="mosabingo-android-privacy.html#${locale}"><span class="eyebrow">2026-10-10 · MOSABINGO ANDROID</span><h2>${copy[2]}</h2><p>${copy[3]}</p><span class="inline-link">${copy[4]} ${icon("arrowRight")}</span></a></div><p class="archive-notice">${LEGACY_POLICIES[locale].notice}</p><div class="policy-grid"><a class="guide-entry" href="${url(locale, "privacy/accountbox")}"><span class="eyebrow">2017-03-05 · ACCOUNTBOX</span><h2>${m.policyAccount}</h2><span class="inline-link">${m.viewGuide} ${icon("arrowRight")}</span></a><a class="guide-entry" href="${url(locale, "privacy/shopperpro")}"><span class="eyebrow">2019-01-31 · SHOPPERPRO</span><h2>${m.policyShopper}</h2><span class="inline-link">${m.viewGuide} ${icon("arrowRight")}</span></a></div></section>`;
 }
 
 function policyDetailView(locale, c, product) {
