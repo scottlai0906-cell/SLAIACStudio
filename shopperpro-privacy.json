@@ -1,0 +1,273 @@
+{
+  "effectiveDate": "2026-11-20",
+  "appVersion": "1.3.0",
+  "locales": {
+    "zh-Hant": {
+      "title": "ShopperPro 隱私權政策",
+      "intro": "適用於 ShopperPro 買斷版及 ShopperProAds 廣告版 1.3.0。生效日期：2026年11月20日。",
+      "sections": [
+        {
+          "heading": "一　適用範圍與提供者",
+          "paragraphs": [
+            "本政策說明 SLAIAC Studio（以下稱「我們」）提供的 ShopperPro 買斷版及 ShopperProAds 廣告版，在 iPhone 與 iPad 上如何處理資料。兩版共用本政策；涉及廣告 SDK 的說明僅適用廣告版。App 不要求建立工作室會員帳號。"
+          ]
+        },
+        {
+          "heading": "二　購物資料與裝置儲存",
+          "paragraphs": [
+            "購物清單、商品名稱、條碼、價格、數量、折扣、保存期限、已購狀態、歷史紀錄、圖片、釘選順序與設定，主要儲存在裝置的 App 資料區。工作室未設置接收這些購物內容的後端伺服器，也不因一般清單操作自動取得整份清單或商品照片。雲端備份與網路查詢另依下文說明。"
+          ]
+        },
+        {
+          "heading": "三　相機辨識與商品圖片",
+          "paragraphs": [
+            "掃描條碼、商品名稱、價格及保存期限時，App 使用相機與裝置上的辨識功能。即時文字辨識不必拍照，不會將辨識影格上傳至工作室，也不會自動存成相簿照片。辨識結果經套用及儲存後，會成為商品資料。",
+            "使用者另外拍攝、從相簿選取，或從網頁擷取、裁切的商品圖片，會隨商品資料保存在 App。使用備份功能時，這些圖片也可能包含在備份內。相機或照片權限只用於對應操作；拒絕相機權限後仍可手動輸入商品。"
+          ]
+        },
+        {
+          "heading": "四　iCloud 備份與還原",
+          "paragraphs": [
+            "使用者操作「備份至 iCloud」時，App 會將購物資料、歷史、圖片及備份相關資訊，儲存到該使用者 Apple 帳號的 iCloud。備份資訊包含備份時間、App 版本與裝置名稱，用於辨識可還原的備份。Apple 依其服務條款、隱私政策及帳號設定處理雲端資料；工作室沒有讀取使用者個人 iCloud 備份的管理介面。",
+            "ShopperPro 與 ShopperProAds 各自保留最近三份新版備份，並提供選擇還原與手動刪除。舊版備份若仍存在，可能另列供還原，不會因新版的三份保留規則自動全部刪除。刪除 App 不代表已刪除 iCloud 備份；裝置或系統備份另依 Apple 設定管理。"
+          ]
+        },
+        {
+          "heading": "五　Google 搜尋與外部連結",
+          "paragraphs": [
+            "使用條碼查找、商品搜尋或圖片搜尋時，對應的條碼、商品名稱或查詢文字會送至 Google。開啟搜尋結果、官方網站、外部連結或下載圖片時，相關網站可能收到 IP 位址、瀏覽器或裝置連線資訊，並依其政策處理 Cookie、搜尋及瀏覽活動。登入第三方服務的狀態也可能影響其資料處理。即時相機辨識本身不會把相機影格作為搜尋圖片上傳。",
+            "App推薦及下載連結會開啟 Apple App Store，由 Apple 處理商店瀏覽、帳號與交易；工作室不會取得付款卡完整資料。外部服務的資料處理請一併參閱 Apple 與 Google 的隱私政策。"
+          ]
+        },
+        {
+          "heading": "六　廣告版的 Google Mobile Ads",
+          "paragraphs": [
+            "ShopperPro 買斷版不載入 Google 廣告 SDK。ShopperProAds 使用 Google Mobile Ads 顯示廣告；SDK 可能處理裝置或 App 識別資訊、IP 位址及其推估的概略位置、廣告曝光與互動、App 互動、當機、效能及其他診斷資料，用於提供與衡量廣告、分析、防止濫用及改善服務。資料可能與裝置識別資訊連結，不能一概視為匿名。",
+            "我們不把整份購物清單、保存期限或商品照片作為廣告請求內容提供給廣告 SDK。廣告相關資料的實際處理受 SDK、服務設定、適用規範及系統限制影響；請參閱 Google 的資料使用及隱私控制說明。App 的公開隱私揭露應反映實際整合及設定。"
+          ]
+        },
+        {
+          "heading": "七　購買及保存期限提醒",
+          "paragraphs": [
+            "提醒由裝置上的系統通知功能排程，無須將商品清單或期限傳至工作室的推播伺服器。通知可能在鎖定畫面或通知中心顯示清單、商品及期限資訊。你可在 App 關閉提醒，或在 iOS 設定管理通知與預覽。已購入商品被移除時，App 會取消該品項的期限提醒。"
+          ]
+        },
+        {
+          "heading": "八　聯絡與問題回報",
+          "paragraphs": [
+            "當你主動透過電子郵件或官網聯絡我們，我們會收到你提供的信箱、稱呼、問題描述及附件；電子郵件服務商也會處理收送與儲存。這些資訊用於回覆、排查問題及處理相關請求，於必要期間保留；不再需要且無其他合法保留理由時，將刪除或去識別。請避免寄送密碼、付款資料及無關的個人資料。"
+          ]
+        },
+        {
+          "heading": "九　資料保存與刪除方式",
+          "paragraphs": [
+            "裝置上的購物資料會保留至你在 App 刪除、以還原內容取代，或移除 App 的相關資料為止。清單與歷史可能各自保有商品或圖片；要完整移除某項內容，請同時檢查相關清單、歷史與備份。刪除目前商品不會自動改寫先前備份，舊備份仍可能包含該內容。",
+            "iCloud 備份請在管理備份或 Apple 提供的儲存空間設定中處理。App 內刪除與 iCloud 刪除是不同操作，系統同步可能需要時間。第三方持有的連線、廣告及商店資料，依各提供者的保存與刪除規則管理；我們沒有替使用者刪除其 Apple 或 Google 帳號資料的權限。",
+            "對我們實際持有的問題回報資料，你可透過下列信箱提出查詢、閱覽、取得副本、更正、停止使用或刪除請求。我們會在必要範圍確認請求者身分並依適用規範處理；裝置與個人 iCloud 內容則由你自行管理。"
+          ]
+        },
+        {
+          "heading": "十　權限保護與政策更新",
+          "paragraphs": [
+            "你可在 iOS 設定調整相機、照片與通知權限；拒絕或撤回後，相應功能可能無法使用，手動管理清單仍可繼續。停用 iCloud 不會自動刪除既有備份；調整系統或第三方隱私設定，也不等於已刪除先前由該服務處理的資料。",
+            "我們使用 App 沙盒及系統權限等機制處理資料，並在採用第三方服務時履行應有的資料保護責任。第三方可能於裝置所在國家以外處理資料。請保護裝置及 Apple 帳號；任何系統皆無法保證絕無風險。功能或資料處理有重大變更時，我們會更新政策及日期，必要時提供通知並取得所需授權。",
+            "聯絡信箱：slaiac.service@gmail.com。官網：scottlai0906-cell.github.io/SLAIACStudio/。本政策取代先前的歷史政策作為現行說明，2019 年版本另留歷史紀錄。"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "label": "Apple 隱私權政策",
+          "url": "https://www.apple.com/legal/privacy/"
+        },
+        {
+          "label": "Google 隱私權政策",
+          "url": "https://policies.google.com/privacy"
+        },
+        {
+          "label": "Google 廣告與合作夥伴資料使用",
+          "url": "https://policies.google.com/technologies/partner-sites"
+        }
+      ],
+      "historyLabel": "閱讀 2019 年歷史版本"
+    },
+    "zh-Hans": {
+      "title": "ShopperPro 隐私政策",
+      "intro": "适用于 ShopperPro 买断版及 ShopperProAds 广告版 1.3.0。生效日期：2026年11月20日。",
+      "sections": [
+        {
+          "heading": "一　适用范围与提供者",
+          "paragraphs": [
+            "本政策说明 SLAIAC Studio（以下称“我们”）提供的 ShopperPro 买断版及 ShopperProAds 广告版，在 iPhone 与 iPad 上如何处理数据。两个版本共用本政策；涉及广告 SDK 的说明仅适用广告版。App 不要求创建工作室会员账号。"
+          ]
+        },
+        {
+          "heading": "二　购物数据与设备存储",
+          "paragraphs": [
+            "购物清单、商品名称、条形码、价格、数量、折扣、保质期、已购状态、历史记录、图片、置顶顺序与设置，主要存储在设备的 App 数据区。工作室未设置接收这些购物内容的后端服务器，也不会因一般清单操作自动取得整份清单或商品照片。云端备份与网络查询另依下文说明。"
+          ]
+        },
+        {
+          "heading": "三　相机识别与商品图片",
+          "paragraphs": [
+            "扫描条形码、商品名称、价格及保质期时，App 使用相机与设备上的识别功能。实时文字识别不必拍照，不会将识别帧上传至工作室，也不会自动保存为相册照片。识别结果经应用及保存后，会成为商品数据。",
+            "用户另外拍摄、从相册选取，或从网页截取、裁剪的商品图片，会随商品数据保存在 App。使用备份功能时，这些图片也可能包含在备份内。相机或照片权限仅用于对应操作；拒绝相机权限后仍可手动输入商品。"
+          ]
+        },
+        {
+          "heading": "四　iCloud 备份与恢复",
+          "paragraphs": [
+            "用户操作“备份至 iCloud”时，App 会将购物数据、历史、图片及备份相关信息，存储到该用户 Apple 账号的 iCloud。备份信息包含备份时间、App 版本与设备名称，用于辨识可恢复的备份。Apple 依其服务条款、隐私政策及账号设置处理云端数据；工作室没有读取用户个人 iCloud 备份的管理界面。",
+            "ShopperPro 与 ShopperProAds 各自保留最近三份新版备份，并提供选择恢复与手动删除。旧版备份若仍存在，可能另列供恢复，不会因新版的三份保留规则自动全部删除。删除 App 不代表已删除 iCloud 备份；设备或系统备份另依 Apple 设置管理。"
+          ]
+        },
+        {
+          "heading": "五　Google 搜索与外部链接",
+          "paragraphs": [
+            "使用条形码查找、商品搜索或图片搜索时，对应的条形码、商品名称或查询文字会发送至 Google。打开搜索结果、官方网站、外部链接或下载图片时，相关网站可能收到 IP 地址、浏览器或设备连接信息，并依其政策处理 Cookie、搜索及浏览活动。登录第三方服务的状态也可能影响其数据处理。实时相机识别本身不会将相机帧作为搜索图片上传。",
+            "App 推荐及下载链接会打开 Apple App Store，由 Apple 处理商店浏览、账号与交易；工作室不会取得付款卡完整数据。外部服务的数据处理请一并参阅 Apple 与 Google 的隐私政策。"
+          ]
+        },
+        {
+          "heading": "六　广告版的 Google Mobile Ads",
+          "paragraphs": [
+            "ShopperPro 买断版不加载 Google 广告 SDK。ShopperProAds 使用 Google Mobile Ads 显示广告；SDK 可能处理设备或 App 标识信息、IP 地址及由其推估的概略位置、广告展示与互动、App 互动、崩溃、性能及其他诊断数据，用于提供与衡量广告、分析、防止滥用及改善服务。数据可能与设备标识信息关联，不能一概视为匿名。",
+            "我们不会将整份购物清单、保质期或商品照片作为广告请求内容提供给广告 SDK。广告相关数据的实际处理受 SDK、服务设置、适用规范及系统限制影响；请参阅 Google 的数据使用及隐私控制说明。App 的公开隐私披露应反映实际集成及设置。"
+          ]
+        },
+        {
+          "heading": "七　购买及保质期提醒",
+          "paragraphs": [
+            "提醒由设备上的系统通知功能安排，无须将商品清单或保质期发送至工作室的推送服务器。通知可能在锁定屏幕或通知中心显示清单、商品及保质期信息。你可在 App 关闭提醒，或在 iOS 设置管理通知与预览。已购买商品被移除时，App 会取消该商品的保质期提醒。"
+          ]
+        },
+        {
+          "heading": "八　联系与问题反馈",
+          "paragraphs": [
+            "当你主动通过电子邮件或官网联系我们，我们会收到你提供的邮箱、称呼、问题描述及附件；电子邮件服务商也会处理收发与存储。这些信息用于回复、排查问题及处理相关请求，在必要期间保留；不再需要且无其他合法保留理由时，将删除或去标识化。请避免发送密码、付款数据及无关的个人数据。"
+          ]
+        },
+        {
+          "heading": "九　数据保存与删除方式",
+          "paragraphs": [
+            "设备上的购物数据会保留至你在 App 删除、以恢复内容取代，或移除 App 的相关数据为止。清单与历史可能各自保有商品或图片；要完整移除某项内容，请同时检查相关清单、历史与备份。删除当前商品不会自动改写先前备份，旧备份仍可能包含该内容。",
+            "iCloud 备份请在管理备份或 Apple 提供的存储空间设置中处理。App 内删除与 iCloud 删除是不同操作，系统同步可能需要时间。第三方持有的连接、广告及商店数据，依各提供者的保存与删除规则管理；我们没有替用户删除其 Apple 或 Google 账号数据的权限。",
+            "对于我们实际持有的问题反馈数据，你可通过下列邮箱提出查询、阅览、取得副本、更正、停止使用或删除请求。我们会在必要范围确认请求者身份并依适用规范处理；设备与个人 iCloud 内容则由你自行管理。"
+          ]
+        },
+        {
+          "heading": "十　权限保护与政策更新",
+          "paragraphs": [
+            "你可在 iOS 设置调整相机、照片与通知权限；拒绝或撤回后，相应功能可能无法使用，手动管理清单仍可继续。停用 iCloud 不会自动删除已有备份；调整系统或第三方隐私设置，也不等于已删除先前由该服务处理的数据。",
+            "我们使用 App 沙盒及系统权限等机制处理数据，并在采用第三方服务时履行应有的数据保护责任。第三方可能在设备所在国家以外处理数据。请保护设备及 Apple 账号；任何系统都无法保证绝无风险。功能或数据处理有重大变更时，我们会更新政策及日期，必要时提供通知并取得所需授权。",
+            "联系邮箱：slaiac.service@gmail.com。官网：scottlai0906-cell.github.io/SLAIACStudio/。本政策取代先前的历史政策作为现行说明，2019 年版本另留历史记录。"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "label": "Apple 隐私政策",
+          "url": "https://www.apple.com/legal/privacy/"
+        },
+        {
+          "label": "Google 隐私政策",
+          "url": "https://policies.google.com/privacy"
+        },
+        {
+          "label": "Google 广告与合作伙伴数据使用",
+          "url": "https://policies.google.com/technologies/partner-sites"
+        }
+      ],
+      "historyLabel": "阅读 2019 年历史版本"
+    },
+    "en": {
+      "title": "ShopperPro Privacy Policy",
+      "intro": "Applies to ShopperPro, the paid edition, and ShopperProAds, the ad-supported edition, version 1.3.0. Effective date: November 20, 2026.",
+      "sections": [
+        {
+          "heading": "1. Scope and provider",
+          "paragraphs": [
+            "This policy explains how ShopperPro, the paid edition, and ShopperProAds, the ad-supported edition, provided by SLAIAC Studio (\"we\"), handle data on iPhone and iPad. Both editions share this policy; statements about advertising SDKs apply only to the ad-supported edition. The apps do not require you to create a studio membership account."
+          ]
+        },
+        {
+          "heading": "2. Shopping data and storage on your device",
+          "paragraphs": [
+            "Shopping lists, product names, barcodes, prices, quantities, discounts, expiry dates, purchased status, history, images, pinning order and settings are primarily stored in the app’s data area on your device. The studio does not operate a backend server that receives this shopping content, and ordinary list operations do not automatically give us access to your entire lists or product photos. Cloud backups and online lookups are described below."
+          ]
+        },
+        {
+          "heading": "3. Camera recognition and product images",
+          "paragraphs": [
+            "When scanning barcodes, product names, prices and expiry dates, the app uses the camera and recognition features on your device. Live text recognition does not require taking a photo, does not upload recognition frames to the studio, and does not automatically save them as photos in your photo library. Once applied and saved, recognition results become product data.",
+            "Product images that you separately photograph, select from your photo library, or capture and crop from a webpage are saved in the app with the product data. These images may also be included when you use the backup feature. Camera or photo permissions are used only for the corresponding operation; you can still enter products manually if you deny camera permission."
+          ]
+        },
+        {
+          "heading": "4. iCloud backups and restoration",
+          "paragraphs": [
+            "When you choose “Backup to iCloud”, the app stores shopping data, history, images and backup information in iCloud for your Apple Account. Backup information includes the backup time, app version and device name, to help identify backups available for restoration. Apple handles cloud data under its terms of service, privacy policy and account settings; the studio has no administrative interface for reading your personal iCloud backups.",
+            "ShopperPro and ShopperProAds each retain their latest three backups created in the new format, and let you choose a backup to restore or delete backups manually. If legacy backups still exist, they may be listed separately for restoration and are not all automatically deleted by the new three-backup retention rule. Deleting the app does not mean its iCloud backups have been deleted; device or system backups are managed separately through Apple settings."
+          ]
+        },
+        {
+          "heading": "5. Google searches and external links",
+          "paragraphs": [
+            "When you use barcode lookup, product search or image search, the corresponding barcode, product name or query text is sent to Google. When you open search results, official websites or external links, or download images, the relevant websites may receive your IP address and browser or device connection information, and handle cookies, searches and browsing activity under their policies. Whether you are signed in to a third-party service may also affect its handling of data. Live camera recognition itself does not upload camera frames as images for an image search.",
+            "App recommendations and download links open the Apple App Store. Apple handles store browsing, accounts and transactions; the studio does not receive complete payment card details. Please also refer to the Apple and Google privacy policies for their handling of data through external services."
+          ]
+        },
+        {
+          "heading": "6. Google Mobile Ads in the ad-supported edition",
+          "paragraphs": [
+            "The paid ShopperPro edition does not load the Google advertising SDK. ShopperProAds uses Google Mobile Ads to display advertisements. The SDK may process device or app identifiers, IP addresses and approximate location inferred from them, ad impressions and interactions, app interactions, crashes, performance and other diagnostic data to provide and measure advertising, perform analytics, prevent abuse and improve services. Data may be linked to device identifiers and must not all be treated as anonymous.",
+            "We do not supply entire shopping lists, expiry dates or product photos to the advertising SDK as the content of ad requests. The actual processing of advertising-related data depends on the SDK, service settings, applicable requirements and system restrictions; please refer to Google’s explanations of data use and privacy controls. The app’s public privacy disclosures should reflect its actual integration and settings."
+          ]
+        },
+        {
+          "heading": "7. Purchase and expiry reminders",
+          "paragraphs": [
+            "Reminders are scheduled through system notifications on your device, without sending product lists or expiry dates to a studio push-notification server. Notifications may display list, product and expiry information on the lock screen or in Notification Center. You can turn off reminders in the app, or manage notifications and previews in iOS settings. When a purchased product is removed, the app cancels that item’s expiry reminder."
+          ]
+        },
+        {
+          "heading": "8. Contact and issue reports",
+          "paragraphs": [
+            "When you choose to contact us by email or through our website, we receive the email address, name or form of address, issue description and attachments you provide; the email service provider also handles delivery and storage. We use this information to reply, investigate issues and handle related requests, and retain it for the necessary period. When it is no longer needed and there is no other lawful reason to retain it, we will delete or de-identify it. Please avoid sending passwords, payment information or unrelated personal data."
+          ]
+        },
+        {
+          "heading": "9. Data retention and deletion",
+          "paragraphs": [
+            "Shopping data on your device remains until you delete it in the app, replace it through restoration, or remove the app’s relevant data. Lists and history may each retain products or images; to remove content completely, check the relevant lists, history and backups. Deleting a current product does not automatically rewrite earlier backups, which may still contain that content.",
+            "Manage iCloud backups through backup management or the storage settings provided by Apple. Deletion within the app and deletion from iCloud are separate operations, and system synchronization may take time. Connection, advertising and store data held by third parties is managed under each provider’s retention and deletion rules; we do not have authority to delete data from your Apple or Google accounts on your behalf.",
+            "For issue-report data that we actually hold, you may use the email address below to request information, access, a copy, correction, cessation of use or deletion. We will verify the requester’s identity to the extent necessary and handle requests under applicable requirements; you manage content on your device and in your personal iCloud yourself."
+          ]
+        },
+        {
+          "heading": "10. Permissions, protection and policy updates",
+          "paragraphs": [
+            "You can adjust camera, photo and notification permissions in iOS settings. After you deny or withdraw permission, the corresponding feature may be unavailable, while manual list management remains available. Disabling iCloud does not automatically delete existing backups; changing system or third-party privacy settings also does not mean that data previously processed by that service has been deleted.",
+            "We use mechanisms such as the app sandbox and system permissions to handle data, and fulfill our data-protection responsibilities when using third-party services. Third parties may process data outside the country where your device is located. Please protect your device and Apple Account; no system can guarantee the complete absence of risk. When features or data handling change materially, we will update this policy and its date, and provide notice and obtain the necessary authorization when required.",
+            "Contact email: slaiac.service@gmail.com. Website: scottlai0906-cell.github.io/SLAIACStudio/. This policy replaces the earlier historical policy as the current explanation; the 2019 version is retained separately as a historical record."
+          ]
+        }
+      ],
+      "references": [
+        {
+          "label": "Apple Privacy Policy",
+          "url": "https://www.apple.com/legal/privacy/"
+        },
+        {
+          "label": "Google Privacy Policy",
+          "url": "https://policies.google.com/privacy"
+        },
+        {
+          "label": "How Google uses data from advertising and partner services",
+          "url": "https://policies.google.com/technologies/partner-sites"
+        }
+      ],
+      "historyLabel": "Read the historical 2019 version"
+    }
+  }
+}
